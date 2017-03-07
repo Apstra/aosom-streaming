@@ -30,7 +30,13 @@ LOCAL_IP=10.0.7.157
 
 ### (optional) Install the Apstra/telegraf container
 
-If you are inside Apstra's network nothing is needed.
+If you are inside Apstra's network, make sure you have added the Apstra docker repo as an insecure registry:
+
+```
+# cat /etc/docker/daemon.json 
+{ "insecure-registries":["10.1.2.21:5000"] }
+```
+
 If you are outside, you need to manually install the docker container for telegraf
 
 Download the file here:https://drive.google.com/open?id=0B-vHD1Q9n4AqLVFrbWFfOUt4N0k
