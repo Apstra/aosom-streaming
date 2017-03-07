@@ -1,0 +1,44 @@
+
+---
+- name: Load All
+  hosts: aos
+  connection: local
+  gather_facts: no
+  tasks:
+
+    - name: Open Session on AOS Server
+      uri:
+        url: "http://{{address}}:{{port}}/api/user/login"
+        method: POST
+        status_code: 201
+        HEADER_Content-Type: 'application/json'
+        HEADER_Accept: 'application/json'
+        body: >
+          {
+            "username": "{{username}}",
+            "password": "{{password}}"
+          }
+        body_format: json
+      register: session
+
+    # - debug: var=session
+
+    - name: Get list of Streaming Session from AOS
+      uri:
+        url: "http://{{address}}:{{port}}/api/streaming-config"
+        method: GET
+        HEADER_Content-Type: 'application/json'
+        HEADER_Accept: 'application/json'
+        HEADER_AUTHTOKEN: "{{session.json.token}}"
+        status_code: 200
+      register: streaming
+
+    - name: Delete All Streaming Session from AOS
+      uri:
+        url: "http://{{address}}:{{port}}/api/streaming-config/{{item.id}}"
+        method: DELETE
+        HEADER_Content-Type: 'application/json'
+        HEADER_Accept: 'application/json'
+        HEADER_AUTHTOKEN: "{{session.json.token}}"
+        status_code: 202
+      with_items: "{{ streaming.json['items'] }}"
