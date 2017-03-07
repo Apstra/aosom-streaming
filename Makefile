@@ -3,6 +3,9 @@ start:
 	docker-compose up -d
 
 stop:
+	docker-compose down
+
+init: grafana-create-source grafana-load-dashboards
 
 grafana-create-source:
 	@echo "Create Datasource in Grafana 1/2"
