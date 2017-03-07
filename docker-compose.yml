@@ -1,0 +1,83 @@
+
+version: '2'
+volumes:
+    # prometheus_data: {}
+    grafana_data_2: {}
+services:
+# -------------------------------------------------------------------------
+# Grafana - Graphical Interface
+# -------------------------------------------------------------------------
+  grafana:
+    image: grafana/grafana:4.1.1
+    environment:
+      - "GF_SECURITY_ADMIN_PASSWORD=admin"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - grafana_data_2:/var/lib/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+
+# -------------------------------------------------------------------------
+# Prometheus -
+# -------------------------------------------------------------------------
+  prometheus:
+    image: prom/prometheus:v1.5.2
+    volumes:
+        - ./prometheus.yml:/etc/prometheus/prometheus.yml
+        - /etc/localtime:/etc/localtime
+        - ./alert.rules:/etc/prometheus/alert.rules
+    command:
+        - '-config.file=/etc/prometheus/prometheus.yml'
+        # - '-alertmanager.url=http://10.0.7.157:9999'
+    ports:
+        - '9090:9090'
+
+  # alertmanager:
+  #     image: prom/alertmanager:v0.5.1
+  #     volumes:
+  #       - ./alertmanager.yml:/alertmanager.yml
+  #       - /etc/localtime:/etc/localtime
+  #     command:
+  #         - '-config.file=/alertmanager.yml'
+# -------------------------------------------------------------------------
+# influxdb
+# -------------------------------------------------------------------------
+  influxdb:
+    image: influxdb:1.1.1-alpine
+    volumes:
+     - /etc/localtime:/etc/localtime
+    environment:
+     - "INFLUXDB_ADMIN_ENABLED=true"
+    ports:
+     - "8083:8083"
+     - "8086:8086"
+
+# -------------------------------------------------------------------------
+# Telegraf - Prom
+# -------------------------------------------------------------------------
+  telegraf-prom:
+    image: 10.1.2.21:5000/telegraf
+    command: telegraf -debug
+    env_file:
+      - variables.env
+    volumes:
+      - ./telegraf-prom.toml:/etc/telegraf/telegraf.conf
+      - /etc/localtime:/etc/localtime
+    ports:
+        - '4444:4444'
+
+# -------------------------------------------------------------------------
+# Telegraf - Influx
+# -------------------------------------------------------------------------
+  telegraf-influx:
+    image: 10.1.2.21:5000/telegraf
+    command: telegraf -debug
+    env_file:
+      - variables.env
+    volumes:
+      - ./telegraf-influx.toml:/etc/telegraf/telegraf.conf
+      - /etc/localtime:/etc/localtime
+    ports:
+        - '6666:6666'

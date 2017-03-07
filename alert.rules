@@ -1,0 +1,2 @@
+
+aos_total_pps = sum(interface_counters_tx_unicast_packets + interface_counters_tx_broadcast_packets + interface_counters_tx_multicast_packets) by (device)
