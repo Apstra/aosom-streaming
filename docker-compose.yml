@@ -8,7 +8,7 @@ services:
 # Grafana - Graphical Interface
 # -------------------------------------------------------------------------
   grafana:
-    image: grafana/grafana:4.1.1
+    image: grafana/grafana:4.1.2
     environment:
       - "GF_SECURITY_ADMIN_PASSWORD=admin"
     volumes:
@@ -25,9 +25,9 @@ services:
   prometheus:
     image: prom/prometheus:v1.5.2
     volumes:
-        - ./prometheus.yml:/etc/prometheus/prometheus.yml
+        - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
         - /etc/localtime:/etc/localtime
-        - ./alert.rules:/etc/prometheus/alert.rules
+        - ./config/alert.rules:/etc/prometheus/alert.rules
     command:
         - '-config.file=/etc/prometheus/prometheus.yml'
         # - '-alertmanager.url=http://10.0.7.157:9999'
@@ -63,10 +63,10 @@ services:
     env_file:
       - variables.env
     volumes:
-      - ./telegraf-prom.toml:/etc/telegraf/telegraf.conf
+      - ./config/telegraf-prom.toml:/etc/telegraf/telegraf.conf
       - /etc/localtime:/etc/localtime
     ports:
-        - '4444:4444'
+        - '6666:6666'
 
 # -------------------------------------------------------------------------
 # Telegraf - Influx
@@ -77,7 +77,7 @@ services:
     env_file:
       - variables.env
     volumes:
-      - ./telegraf-influx.toml:/etc/telegraf/telegraf.conf
+      - ./config/telegraf-influx.toml:/etc/telegraf/telegraf.conf
       - /etc/localtime:/etc/localtime
     ports:
-        - '6666:6666'
+        - '4444:4444'
