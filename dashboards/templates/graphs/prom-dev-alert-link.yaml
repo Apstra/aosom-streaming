@@ -1,0 +1,13 @@
+
+
+title: "Link"
+template: prom-singlestat-line.j2
+datasource: prometheus
+span: 1
+
+targets:
+  A:
+    expr: sum(alert_interface_link_status_mismatch_status{device=~"$device"})
+
+templatings_used:
+   - device.yaml

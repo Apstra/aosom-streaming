@@ -1,0 +1,17 @@
+
+title: Apstra AOS Blueprint
+template: "dashboard_base.j2"
+
+tags:
+  - aos
+  - apstra
+  - blueprint
+
+templatings:
+  - role.yaml
+
+rows:
+  - bp_single_stat.yaml
+  - bp_interface_traffic.yaml
+  - bp_system_info.yaml
+  # - prom_bp_process_info.yaml

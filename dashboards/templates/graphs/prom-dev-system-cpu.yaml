@@ -1,0 +1,31 @@
+
+
+title: "System CPU"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 6
+stack: "true"
+
+targets:
+  A:
+    expr: system_info_cpu_system{device=~"$device"}
+    legend: System
+  B:
+    expr: system_info_cpu_user{device=~"$device"}
+    legend: User
+  # Need to insure list order to include Idle
+  # C:
+  #   expr: system_info_cpu_idle{device=~"$device"}
+  #   legend: Idle
+
+# yaxes:
+#   - format: bps
+#     label: RX / TX
+#   - format: short
+
+# series_overrides:
+#   - alias: "/rx/i"
+#     transform: "negative-Y"
+
+templatings_used:
+   - device.yaml

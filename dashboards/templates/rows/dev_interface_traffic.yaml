@@ -1,0 +1,10 @@
+
+title: Traffic
+height: 250px
+template: row_base_open.j2
+panels:
+  graphs:
+    - prom-dev-int-pkts-sum.yaml
+    - prom-dev-int-bytes-sum.yaml
+    - prom-dev-int-pkts-type.yaml
+    # - prom-bp-traffic-drop.yaml

@@ -1,0 +1,19 @@
+
+
+title: "System Memory"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 6
+
+targets:
+  A:
+    expr: sum(system_info_memory_used{role=~"$role"}) by (device)
+    legend: "{{ device }}"
+
+yaxes:
+  - format: bytes
+    label: Memory Used
+  - format: short
+
+templatings_used:
+  - role.yaml

@@ -1,0 +1,39 @@
+
+
+title: "Traffic Statistics (PPS)"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 6
+
+targets:
+  A:
+    expr: interface_counters_rx_unicast_packets{device=~"$device", interface=~"$interface"}
+    legend: "{{ device }} - {{ interface }} - RX UCast"
+  B:
+    expr: interface_counters_rx_broadcast_packets{device=~"$device", interface=~"$interface"}
+    legend: "{{ device }} - {{ interface }} - RX BCast"
+  C:
+    expr: interface_counters_rx_multicast_packets{device=~"$device", interface=~"$interface"}
+    legend: "{{ device }} - {{ interface }} - RX MCast"
+  D:
+    expr: interface_counters_tx_unicast_packets{device=~"$device", interface=~"$interface"}
+    legend: "{{ device }} - {{ interface }} - TX UCast"
+  E:
+    expr: interface_counters_tx_broadcast_packets{device=~"$device", interface=~"$interface"}
+    legend: "{{ device }} - {{ interface }} - TX BCast"
+  f:
+    expr: interface_counters_tx_multicast_packets{device=~"$device", interface=~"$interface"}
+    legend: "{{ device }} - {{ interface }} - TX MCast"
+
+yaxes:
+  - format: pps
+    label: RX / TX
+  - format: short
+
+# series_overrides:
+#   - alias: "/rx/i"
+#     transform: "negative-Y"
+
+templatings_used:
+  - device.yaml
+  - prom_interface.yaml

@@ -1,0 +1,11 @@
+
+template: annotation_base.j2
+
+query: SELECT * FROM event_link_status WHERE state = 'LINK_DOWN' AND $timeFilter
+icon_color: "#C0C6BE"
+icon_size: 13
+name: Link Down
+show_line: true
+column_tags: device_name, ifname
+column_text:
+column_title: Link Down

@@ -1,0 +1,26 @@
+
+
+title: "Traffic Statistics (BPS)"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 4
+
+targets:
+  A:
+    expr: sum(interface_counters_tx_bytes{device=~"$device"}) by (device, interface)
+    legend: "{{ interface }} - TX"
+  B:
+    expr: sum(interface_counters_rx_bytes{device=~"$device"}) by (device, interface)
+    legend: "{{ interface }} - RX"
+
+yaxes:
+  - format: bps
+    label: RX / TX
+  - format: short
+
+series_overrides:
+  - alias: "/RX/"
+    transform: "negative-Y"
+
+templatings_used:
+  - device.yaml
