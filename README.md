@@ -20,7 +20,7 @@ You need to have `docker` and `docker-compose` installed on your system to use t
 
 ### Configure
 
-Define your information in `variables.env`. You need to define at least:
+Update the following information in `variables.env` to match your environment.
 ```
 AOS_SERVER=172.20.187.3
 LOCAL_IP=10.0.7.157
