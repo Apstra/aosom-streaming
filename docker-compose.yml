@@ -56,7 +56,7 @@ services:
 # Telegraf - Prom
 # -------------------------------------------------------------------------
   telegraf-prom:
-    image: 10.1.2.21:5000/telegraf
+    image: 10.1.2.21:5000/telegraf:perfmon-generic
     command: telegraf -debug
     env_file:
       - variables.env
@@ -65,12 +65,13 @@ services:
       - /etc/localtime:/etc/localtime
     ports:
         - '6666:6666'
+        - '9126:9126'
 
 # -------------------------------------------------------------------------
 # Telegraf - Influx
 # -------------------------------------------------------------------------
   telegraf-influx:
-    image: 10.1.2.21:5000/telegraf
+    image: 10.1.2.21:5000/telegraf:perfmon-generic
     command: telegraf -debug
     env_file:
       - variables.env
