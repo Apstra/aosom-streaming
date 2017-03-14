@@ -1,0 +1,11 @@
+
+title: Alerts
+height: 50px
+template: row_base_open.j2
+panels:
+  graphs:
+    - prom-dev-alert-bgp.yaml
+    - prom-dev-alert-route.yaml
+    - prom-dev-alert-link.yaml
+    - prom-dev-alert-cable.yaml
+    - prom-dev-alert-config.yaml

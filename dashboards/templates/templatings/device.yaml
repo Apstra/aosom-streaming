@@ -1,0 +1,8 @@
+
+template: templating_prom_base.j2
+
+include_all: "false"
+multi: "false"
+name: device
+label: Device
+query: label_values(interface_counters_rx_bytes, device)

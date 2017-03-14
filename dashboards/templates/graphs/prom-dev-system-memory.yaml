@@ -1,0 +1,24 @@
+
+
+title: "System Memory"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 6
+
+stack: "true"
+
+targets:
+  A:
+    expr: system_info_memory_used{device=~"$device"}
+    legend: Used
+  B:
+    expr: system_info_memory_total{device=~"$device"}
+    legend: Total
+
+yaxes:
+  - format: bytes
+    label: Memory Used
+  - format: short
+
+templatings_used:
+  - device.yaml

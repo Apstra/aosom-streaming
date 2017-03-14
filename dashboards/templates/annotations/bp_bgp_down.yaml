@@ -1,0 +1,11 @@
+
+template: annotation_base.j2
+
+query: SELECT * FROM event_bgp_neighbor WHERE state = 'BGP_SESSION_DOWN' AND blueprint =~ /$blueprint/ AND role =~ /$role/ AND $timeFilter
+icon_color: "rgba(156, 143, 2, 0.95)"
+icon_size: 13
+name: BGP
+show_line: true
+column_tags: device, rmt_asn
+column_text:
+column_title: BGP

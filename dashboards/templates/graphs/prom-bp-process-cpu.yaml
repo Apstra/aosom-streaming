@@ -1,0 +1,20 @@
+
+
+title: "Process CPU"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 6
+
+targets:
+  A:
+    expr: sum(process_info_cpu_system + process_info_cpu_user) by (device, process_name)
+    legend: "{{ device }} - {{ process_name }}"
+
+yaxes:
+  - format: bytes
+    label: CPU
+  - format: short
+
+templatings_used:
+   - role.yaml
+  #  - prom_blueprint.yaml

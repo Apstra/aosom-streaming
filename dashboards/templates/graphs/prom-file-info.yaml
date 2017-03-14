@@ -1,0 +1,19 @@
+
+
+title: "Log File Size"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 6
+
+targets:
+  A:
+    expr: file_info_size{device_name=~"$device", file_name=~".*log"}
+    legend: "{{ device_name }} {{ file_name }}"
+
+yaxes:
+  - format: bytes
+    label: File Size
+  - format: short
+
+templatings_used:
+  - device.yaml

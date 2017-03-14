@@ -1,0 +1,27 @@
+
+################################################################################
+# This file is define how to generate a dashboard for Grafana
+#  with grafana-gen
+# You can find and install grafana-gen here https://github.com/dgarros/grafana-gen
+################################################################################
+
+title: Apstra AOS Device
+template: "dashboard_base.j2"
+
+tags:
+  - aos
+  - apstra
+  - device
+
+templatings:
+  - device.yaml
+
+annotations:
+  - dev_link_down.yaml
+  - dev_bgp_down.yaml
+
+rows:
+  - dev_alerts.yaml
+  - dev_system_info.yaml
+  - dev_process_info.yaml
+  - dev_interface_traffic.yaml

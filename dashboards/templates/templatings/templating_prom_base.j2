@@ -1,0 +1,22 @@
+{
+  "allValue": null,
+  "current": {
+    "text": "{{ default_value | default('All') }}"
+  },
+  "datasource": "{{ datasource | default("prometheus") }}",
+  "hide": 0,
+  "includeAll": {{ include_all | default('true') }},
+  "label": "{{ label }}",
+  "multi": {{ multi | default('true') }},
+  "name": "{{ name }}",
+  "options": [],
+  "query": "{{ query }}",
+  "refresh": 1,
+  "regex": "",
+  "sort": 1,
+  "tagValuesQuery": "",
+  "tags": [],
+  "tagsQuery": "",
+  "type": "query",
+  "useTags": false
+}

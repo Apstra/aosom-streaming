@@ -1,0 +1,84 @@
+{
+  "aliasColors": {},
+  "bars": false,
+  "datasource": "{{ datasource }}",
+  "fill": 1,
+  "id": {{ id }},
+  "legend": {
+    "alignAsTable": true,
+    "avg": true,
+    "current": true,
+    "max": true,
+    "min": true,
+    "show": false,
+    "total": false,
+    "values": true
+  },
+  "lines": true,
+  "linewidth": 1,
+  "links": [],
+  "nullPointMode": "null",
+  "percentage": false,
+  "pointradius": 5,
+  "points": false,
+  "renderer": "flot",
+  "seriesOverrides": [
+{% if series_overrides is defined %}
+{%- for serie in series_overrides %}
+    {
+      "alias": "{{ serie.alias }}",
+      "transform": "{{ serie.transform }}"
+    }{% if not loop.last %},{% endif %}
+{% endfor -%}
+{% endif%}
+  ],
+  "span": {{ span }},
+  "stack": {{ stack | default("false") }},
+  "steppedLine": false,
+  "targets": [
+  {% for id, target in targets.iteritems() -%}
+      {
+        "expr": "{{ target.expr|replace('"', '\\"')|trim }}",
+        "intervalFactor": 2,
+        "legendFormat": "{{ target.legend | default("") }}",
+        "metric": "",
+        "refId": "{{ id }}",
+        "step": 2
+      }
+  {% if not loop.last %},{% endif %}
+  {%- endfor %}
+  ],
+  "thresholds": [],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "{{ title }}",
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  },
+  "transparent": false,
+  "type": "graph",
+  "xaxis": {
+    "mode": "time",
+    "name": null,
+    "show": true,
+    "values": []
+  },
+  "yaxes": [
+{% if yaxes is not defined %}
+{% set yaxes = [ {format: 'short' }, {format: 'short' }] %}
+{% endif %}
+{% for yaxe in yaxes %}
+    {
+      "show": true,
+      "min": null,
+      "max": null,
+      "logBase": 1,
+      "format": "{{ yaxe.format | default('short') }}",
+      "label": "{{ yaxe.label | default('') }}"
+    }
+{% if not loop.last %},{% endif %}
+{% endfor %}
+  ]
+}

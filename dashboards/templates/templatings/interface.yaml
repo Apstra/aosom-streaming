@@ -1,0 +1,6 @@
+
+template: templating_prom_base.j2
+
+name: interface
+label: Interface
+query: label_values(interface_counters_rx_bytes, interface)

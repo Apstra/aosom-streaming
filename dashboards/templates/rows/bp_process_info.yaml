@@ -1,0 +1,8 @@
+
+title: Processes Info
+height: 250px
+template: row_base_open.j2
+panels:
+  graphs:
+    - prom-bp-process-cpu.yaml
+    - prom-process-memory.yaml

@@ -1,0 +1,28 @@
+
+################################################################################
+# This file is define how to generate a dashboard for Grafana
+#  with grafana-gen
+# You can find and install grafana-gen here https://github.com/dgarros/grafana-gen
+################################################################################
+
+title: Apstra AOS Blueprint
+template: "dashboard_base.j2"
+
+tags:
+  - aos
+  - apstra
+  - blueprint
+
+templatings:
+  - role.yaml
+  - blueprint.yaml
+
+annotations:
+  - bp_link_down.yaml
+  - bp_bgp_down.yaml
+
+rows:
+  - bp_single_stat.yaml
+  - bp_interface_traffic.yaml
+  - bp_system_info.yaml
+  # - prom_bp_process_info.yaml
