@@ -740,7 +740,7 @@
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(interface_counters_tx_unicast_packets{device=~\"$device\"} + interface_counters_tx_broadcast_packets{device=~\"$device\"} + interface_counters_tx_multicast_packets{device=~\"$device\"}) by (device, interface)", 
+                "expr": "avg(interface_counters_tx_unicast_packets{device=~\"$device\"}/5 + interface_counters_tx_broadcast_packets{device=~\"$device\"}/5 + interface_counters_tx_multicast_packets{device=~\"$device\"}/5) by (device, interface)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "{{ interface }} - TX", 
@@ -748,7 +748,7 @@
                 "refId": "A"
               }, 
               {
-                "expr": "sum(interface_counters_rx_unicast_packets{device=~\"$device\"} + interface_counters_rx_broadcast_packets{device=~\"$device\"} + interface_counters_rx_multicast_packets{device=~\"$device\"}) by (device, interface)", 
+                "expr": "avg(interface_counters_rx_unicast_packets{device=~\"$device\"}/5 + interface_counters_rx_broadcast_packets{device=~\"$device\"}/5 + interface_counters_rx_multicast_packets{device=~\"$device\"}/5) by (device, interface)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "{{ interface }} - RX", 
@@ -827,7 +827,7 @@
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(interface_counters_tx_bytes{device=~\"$device\"}) by (device, interface)", 
+                "expr": "avg(interface_counters_tx_bytes{device=~\"$device\"}/5) by (device, interface)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "{{ interface }} - TX", 
@@ -835,7 +835,7 @@
                 "refId": "A"
               }, 
               {
-                "expr": "sum(interface_counters_rx_bytes{device=~\"$device\"}) by (device, interface)", 
+                "expr": "avg(interface_counters_rx_bytes{device=~\"$device\"}/5) by (device, interface)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "{{ interface }} - RX", 
@@ -914,7 +914,7 @@
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(interface_counters_tx_unicast_packets{device=~\"$device\"} + interface_counters_rx_unicast_packets{device=~\"$device\"}) by (device)", 
+                "expr": "sum(interface_counters_tx_unicast_packets{device=~\"$device\"}/5 + interface_counters_rx_unicast_packets{device=~\"$device\"}/5) by (device)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "Unicast", 
@@ -922,7 +922,7 @@
                 "refId": "A"
               }, 
               {
-                "expr": "sum(interface_counters_tx_multicast_packets{device=~\"$device\"} + interface_counters_rx_multicast_packets{device=~\"$device\"}) by (device)", 
+                "expr": "sum(interface_counters_tx_multicast_packets{device=~\"$device\"}/5 + interface_counters_rx_multicast_packets{device=~\"$device\"}/5) by (device)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "Multicast", 
@@ -930,7 +930,7 @@
                 "refId": "C"
               }, 
               {
-                "expr": "sum(interface_counters_tx_broadcast_packets{device=~\"$device\"} + interface_counters_rx_broadcast_packets{device=~\"$device\"}) by (device)", 
+                "expr": "sum(interface_counters_tx_broadcast_packets{device=~\"$device\"}/5 + interface_counters_rx_broadcast_packets{device=~\"$device\"}/5) by (device)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "Boadcast", 
@@ -1033,6 +1033,34 @@
     "title": "Apstra AOS Device", 
     "editable": true, 
     "refresh": "1m", 
+    "annotations": {
+      "list": [
+        {
+          "enable": true, 
+          "name": "BGP", 
+          "iconSize": 13, 
+          "textColumn": "None", 
+          "titleColumn": "BGP", 
+          "datasource": "influxdb", 
+          "showLine": "True", 
+          "query": "SELECT * FROM event_bgp_neighbor WHERE state = 'BGP_SESSION_DOWN' AND device =~ /$device/ AND $timeFilter", 
+          "tagsColumn": "device, rmt_asn", 
+          "iconColor": "rgba(156, 143, 2, 0.95)"
+        }, 
+        {
+          "enable": true, 
+          "name": "Link", 
+          "iconSize": 13, 
+          "textColumn": "None", 
+          "titleColumn": "Link", 
+          "datasource": "influxdb", 
+          "showLine": "True", 
+          "query": "SELECT * FROM event_link_status WHERE state = 'LINK_DOWN' AND device =~ /$device/ AND $timeFilter", 
+          "tagsColumn": "device, ifname", 
+          "iconColor": "rgba(255, 96, 96, 1)"
+        }
+      ]
+    }, 
     "originalTitle": "Apstra AOS Device", 
     "timepicker": {
       "status": "Stable", 
@@ -1073,5 +1101,6 @@
     "timezone": "browser", 
     "schemaVersion": 12, 
     "id": null
-  }
+  }, 
+  "overwrite": true
 }

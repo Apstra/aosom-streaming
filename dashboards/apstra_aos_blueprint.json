@@ -657,6 +657,28 @@
           "tagsQuery": "", 
           "options": [], 
           "includeAll": true
+        }, 
+        {
+          "regex": "", 
+          "sort": 1, 
+          "multi": true, 
+          "hide": 0, 
+          "name": "blueprint", 
+          "tags": [], 
+          "allValue": null, 
+          "tagValuesQuery": "", 
+          "refresh": 1, 
+          "label": "Blueprint", 
+          "current": {
+            "text": "All"
+          }, 
+          "datasource": "prometheus", 
+          "type": "query", 
+          "query": "label_values(interface_counters_rx_bytes, blueprint)", 
+          "useTags": false, 
+          "tagsQuery": "", 
+          "options": [], 
+          "includeAll": false
         }
       ]
     }, 
@@ -670,6 +692,34 @@
     "title": "Apstra AOS Blueprint", 
     "editable": true, 
     "refresh": "1m", 
+    "annotations": {
+      "list": [
+        {
+          "enable": true, 
+          "name": "Link", 
+          "iconSize": 13, 
+          "textColumn": "None", 
+          "titleColumn": "Link", 
+          "datasource": "influxdb", 
+          "showLine": "True", 
+          "query": "SELECT * FROM event_link_status WHERE state = 'LINK_DOWN' AND blueprint =~ /$blueprint/ AND role =~ /$role/ AND $timeFilter", 
+          "tagsColumn": "device, ifname", 
+          "iconColor": "rgba(255, 96, 96, 1)"
+        }, 
+        {
+          "enable": true, 
+          "name": "BGP", 
+          "iconSize": 13, 
+          "textColumn": "None", 
+          "titleColumn": "BGP", 
+          "datasource": "influxdb", 
+          "showLine": "True", 
+          "query": "SELECT * FROM event_bgp_neighbor WHERE state = 'BGP_SESSION_DOWN' AND blueprint =~ /$blueprint/ AND role =~ /$role/ AND $timeFilter", 
+          "tagsColumn": "device, rmt_asn", 
+          "iconColor": "rgba(156, 143, 2, 0.95)"
+        }
+      ]
+    }, 
     "originalTitle": "Apstra AOS Blueprint", 
     "timepicker": {
       "status": "Stable", 
@@ -710,5 +760,6 @@
     "timezone": "browser", 
     "schemaVersion": 12, 
     "id": null
-  }
+  }, 
+  "overwrite": true
 }

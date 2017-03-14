@@ -9,6 +9,11 @@ tags:
 
 templatings:
   - role.yaml
+  - blueprint.yaml
+
+annotations:
+  - bp_link_down.yaml
+  - bp_bgp_down.yaml
 
 rows:
   - bp_single_stat.yaml
