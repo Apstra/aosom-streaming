@@ -1,4 +1,10 @@
 
+################################################################################
+# This file is define how to generate a dashboard for Grafana
+#  with grafana-gen
+# You can find and install grafana-gen here https://github.com/dgarros/grafana-gen
+################################################################################
+
 title: Apstra AOS Blueprint
 template: "dashboard_base.j2"
 
