@@ -7,15 +7,15 @@ span: 4
 
 targets:
   A:
-    expr: sum(interface_counters_tx_unicast_packets{device=~"$device"} + interface_counters_rx_unicast_packets{device=~"$device"}) by (device)
+    expr: sum(interface_counters_tx_unicast_packets{device=~"$device"}/5 + interface_counters_rx_unicast_packets{device=~"$device"}/5) by (device)
     legend: "Unicast"
 
   B:
-    expr: sum(interface_counters_tx_broadcast_packets{device=~"$device"} + interface_counters_rx_broadcast_packets{device=~"$device"}) by (device)
+    expr: sum(interface_counters_tx_broadcast_packets{device=~"$device"}/5 + interface_counters_rx_broadcast_packets{device=~"$device"}/5) by (device)
     legend: "Boadcast"
 
   C:
-    expr: sum(interface_counters_tx_multicast_packets{device=~"$device"} + interface_counters_rx_multicast_packets{device=~"$device"}) by (device)
+    expr: sum(interface_counters_tx_multicast_packets{device=~"$device"}/5 + interface_counters_rx_multicast_packets{device=~"$device"}/5) by (device)
     legend: "Multicast"
 
 yaxes:
