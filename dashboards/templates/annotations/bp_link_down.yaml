@@ -1,0 +1,11 @@
+
+template: annotation_base.j2
+
+query: SELECT * FROM event_link_status WHERE state = 'LINK_DOWN' AND blueprint =~ /$blueprint/ AND role =~ /$role/ AND $timeFilter
+icon_color: "rgba(255, 96, 96, 1)"
+icon_size: 13
+name: Link
+show_line: true
+column_tags: device, ifname
+column_text:
+column_title: Link
