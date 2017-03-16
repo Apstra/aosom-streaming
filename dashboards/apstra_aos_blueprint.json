@@ -1,6 +1,7 @@
 {
   "dashboard": {
     "version": 0, 
+    "style": "dark", 
     "rows": [
       {
         "panels": [
@@ -1275,7 +1276,6 @@
       ]
     }, 
     "originalTitle": "Apstra AOS Blueprint", 
-    "theme": "light", 
     "timepicker": {
       "status": "Stable", 
       "notice": false, 

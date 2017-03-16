@@ -1,6 +1,7 @@
 {
   "dashboard": {
     "version": 0, 
+    "style": "dark", 
     "rows": [
       {
         "collapse": false, 
@@ -1394,7 +1395,6 @@
       ]
     }, 
     "originalTitle": "Apstra AOS Device", 
-    "theme": "light", 
     "timepicker": {
       "status": "Stable", 
       "notice": false, 
