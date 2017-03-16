@@ -1,0 +1,25 @@
+
+
+title: "Traffic Error (pps)"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 4
+
+targets:
+  A:
+    expr: avg(interface_counters_rx_error_pps{device=~"$device"}) by (device, interface)
+    legend: "{{ interface }} - RX"
+  B:
+    expr: avg(interface_counters_tx_error_pps{device=~"$device"}) by (device, interface)
+    legend: "{{ interface }} - TX"
+
+yaxes:
+  - format: pps
+  - format: short
+
+series_overrides:
+  - alias: "/RX/"
+    transform: "negative-Y"
+
+templatings_used:
+   - device.yaml

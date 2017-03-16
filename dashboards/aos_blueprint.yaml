@@ -18,11 +18,12 @@ templatings:
   - blueprint.yaml
 
 annotations:
-  - bp_link_down.yaml
-  - bp_bgp_down.yaml
+  - bp-link-down.yaml
+  - bp-bgp-down.yaml
 
 rows:
-  - bp_single_stat.yaml
-  - bp_interface_traffic.yaml
-  - bp_system_info.yaml
+  - bp-single-stat.yaml
+  - bp-alerts.yaml
+  - bp-interface-traffic.yaml
+  - bp-system-info.yaml
   # - prom_bp_process_info.yaml

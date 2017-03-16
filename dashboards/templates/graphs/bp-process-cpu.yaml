@@ -7,7 +7,7 @@ span: 6
 
 targets:
   A:
-    expr: sum(process_info_cpu_system + process_info_cpu_user) by (device, process_name)
+    expr: sum(process_info_cpu_system{role =~ "$role", blueprint=~"$blueprint"} + process_info_cpu_user{role =~ "$role", blueprint=~"$blueprint"}) by (device, process_name)
     legend: "{{ device }} - {{ process_name }}"
 
 yaxes:
@@ -16,5 +16,5 @@ yaxes:
   - format: short
 
 templatings_used:
-   - role.yaml
-  #  - prom_blueprint.yaml
+  - role.yaml
+  - blueprint.yaml

@@ -7,7 +7,7 @@ span: 6
 
 targets:
   A:
-    expr: sum(system_info_cpu_system{role=~"$role"}) by (device)
+    expr: sum(system_info_cpu_system{role =~ "$role", blueprint=~"$blueprint"}) by (device)
     legend: "{{ device }}"
 
 # yaxes:
@@ -15,9 +15,6 @@ targets:
 #     label: RX / TX
 #   - format: short
 
-# series_overrides:
-#   - alias: "/rx/i"
-#     transform: "negative-Y"
-
 templatings_used:
   - role.yaml
+  - blueprint.yaml

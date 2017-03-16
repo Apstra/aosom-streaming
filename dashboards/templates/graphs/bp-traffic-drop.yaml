@@ -1,0 +1,21 @@
+
+
+title: "Diff In / Out"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 3
+
+targets:
+
+  A:
+    expr:  sum(interface_counters_rx_bps{role=~"$role", blueprint=~"$blueprint"} - interface_counters_tx_bps{role=~"$role", blueprint=~"$blueprint"}) by (device)
+    legend: "{{ device }} - Diff Rx/Tx"
+
+yaxes:
+  - format: bps
+    label: Diff (Rx - Tx)
+  - format: short
+
+templatings_used:
+  - role.yaml
+  - blueprint.yaml

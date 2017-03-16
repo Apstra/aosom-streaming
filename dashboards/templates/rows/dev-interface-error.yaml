@@ -1,0 +1,9 @@
+
+title: Traffic Error / Discard
+height: 250px
+template: row_base_open.j2
+panels:
+  graphs:
+    - dev-int-discard.yaml
+    - dev-int-error.yaml
+    - dev-int-drop.yaml

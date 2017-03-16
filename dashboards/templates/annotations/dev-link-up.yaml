@@ -1,0 +1,11 @@
+
+template: annotation_base.j2
+
+query: SELECT * FROM event_link_status WHERE state = 'LINK_UP' AND device =~ /$device/ AND $timeFilter
+icon_color: "rgba(0, 255, 0, 1)"
+icon_size: 13
+name: Link Up
+show_line: true
+column_tags: device, ifname
+column_text:
+column_title: Link Up

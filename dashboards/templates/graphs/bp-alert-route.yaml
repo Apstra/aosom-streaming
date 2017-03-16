@@ -1,0 +1,14 @@
+
+
+title: "Route"
+template: prom-singlestat-line-color.j2
+datasource: prometheus
+span: 1
+
+targets:
+  A:
+    expr: sum(alert_route_status{role=~"$role", blueprint=~"$blueprint"})
+
+templatings_used:
+  - role.yaml
+  - blueprint.yaml

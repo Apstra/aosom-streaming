@@ -1,0 +1,14 @@
+
+
+title: "Cable"
+template: prom-singlestat-line-color.j2
+datasource: prometheus
+span: 1
+
+targets:
+  A:
+    expr: sum(cable_peer_mismatch_status{role=~"$role", blueprint=~"$blueprint"})
+
+templatings_used:
+  - role.yaml
+  - blueprint.yaml

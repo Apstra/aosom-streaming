@@ -1,7 +1,6 @@
 {
   "dashboard": {
     "version": 0, 
-    "style": "dark", 
     "rows": [
       {
         "panels": [
@@ -198,7 +197,7 @@
             "mappingType": 1, 
             "span": 1, 
             "colorBackground": false, 
-            "title": "L3 Server", 
+            "title": "Server", 
             "sparkline": {
               "full": false, 
               "fillColor": "rgba(31, 118, 189, 0.18)", 
@@ -207,7 +206,7 @@
             }, 
             "targets": [
               {
-                "expr": "count(count by(device)(system_info_cpu_idle{role=\"l3_server\"}))", 
+                "expr": "count(count by(device)(system_info_cpu_idle{role=\".*server\"}))", 
                 "metric": "", 
                 "step": 60, 
                 "legendFormat": "", 
@@ -241,6 +240,471 @@
       }, 
       {
         "collapse": false, 
+        "title": "Alerts", 
+        "editable": true, 
+        "height": "50px", 
+        "panels": [
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 4, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
+            "title": "Liveness", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(alert_liveness_status_clean{role=~\"$role\", blueprint=~\"$blueprint\"})", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
+          }, 
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 5, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
+            "title": "BGP", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(alert_bgp_neighbor_mismatch_status{role=~\"$role\", blueprint=~\"$blueprint\"})", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
+          }, 
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 6, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
+            "title": "Route", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(alert_route_status{role=~\"$role\", blueprint=~\"$blueprint\"})", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
+          }, 
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 7, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
+            "title": "Link", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(alert_interface_link_status_mismatch_status{role=~\"$role\", blueprint=~\"$blueprint\"})", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
+          }, 
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 8, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
+            "title": "Cable", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(cable_peer_mismatch_status{role=~\"$role\", blueprint=~\"$blueprint\"})", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
+          }, 
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 9, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
+            "title": "Config", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(alert_config_deviation_status{role=~\"$role\", blueprint=~\"$blueprint\"})", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
+          }
+        ], 
+        "showTitle": true
+      }, 
+      {
+        "collapse": false, 
         "title": "Traffic", 
         "editable": true, 
         "height": "250px", 
@@ -252,21 +716,21 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 4, 
+            "id": 10, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(interface_counters_tx_unicast_packets{role=~\"$role\"} + interface_counters_tx_broadcast_packets{role=~\"$role\"} + interface_counters_tx_multicast_packets{role=~\"$role\"}) by (device)", 
+                "expr": "avg(interface_counters_total_pps{ role=~\"$role\", blueprint=~\"$blueprint\"}) by (device)", 
                 "metric": "", 
                 "step": 2, 
-                "legendFormat": "{{ device }} - Total TX", 
+                "legendFormat": "{{ device }}", 
                 "intervalFactor": 2, 
                 "refId": "A"
               }
             ], 
             "fill": 1, 
-            "span": 4, 
+            "span": 3, 
             "title": "Traffic Total (PPS)", 
             "tooltip": {
               "sort": 0, 
@@ -289,7 +753,7 @@
                 "format": "pps", 
                 "max": null, 
                 "min": null, 
-                "label": "RX / TX", 
+                "label": "", 
                 "show": true
               }, 
               {
@@ -326,21 +790,29 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 5, 
+            "id": 11, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(interface_counters_rx_bytes{role=~\"$role\"}) by (device)", 
+                "expr": "sum(interface_counters_tx_bps{role=~\"$role\", blueprint=~\"$blueprint\"}) by (device)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ device }} - TX", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }, 
+              {
+                "expr": "sum(interface_counters_rx_bps{role=~\"$role\", blueprint=~\"$blueprint\"}) by (device)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "{{ device }} -  RX", 
                 "intervalFactor": 2, 
-                "refId": "A"
+                "refId": "B"
               }
             ], 
             "fill": 1, 
-            "span": 4, 
+            "span": 3, 
             "title": "Traffic Statistics (BPS)", 
             "tooltip": {
               "sort": 0, 
@@ -405,21 +877,103 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 6, 
+            "id": 12, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(interface_counters_rx_bytes{role=~\"$role\"} - interface_counters_tx_bytes{role=~\"$role\"}) by (device)", 
+                "expr": "sum(interface_counters_rx_discard_pps{role=~\"$role\", blueprint=~\"$blueprint\"} + interface_counters_tx_discard_pps{role=~\"$role\", blueprint=~\"$blueprint\"}) by (device)", 
                 "metric": "", 
                 "step": 2, 
-                "legendFormat": "{{ device }} - Diff Rx/Tx", 
+                "legendFormat": "{{ device }} - Discard", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }, 
+              {
+                "expr": "sum(interface_counters_rx_error_pps{role=~\"$role\", blueprint=~\"$blueprint\"} + interface_counters_tx_error_pps{role=~\"$role\", blueprint=~\"$blueprint\"}) by (device)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ device }} - Error", 
                 "intervalFactor": 2, 
                 "refId": "B"
               }
             ], 
             "fill": 1, 
-            "span": 4, 
+            "span": 3, 
+            "title": "Traffic Error / Discard", 
+            "tooltip": {
+              "sort": 0, 
+              "shared": true, 
+              "value_type": "individual"
+            }, 
+            "legend": {
+              "total": false, 
+              "show": false, 
+              "max": true, 
+              "min": true, 
+              "current": true, 
+              "values": true, 
+              "alignAsTable": true, 
+              "avg": true
+            }, 
+            "yaxes": [
+              {
+                "logBase": 1, 
+                "format": "pps", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }, 
+              {
+                "logBase": 1, 
+                "format": "short", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }
+            ], 
+            "xaxis": {
+              "show": true, 
+              "values": [], 
+              "mode": "time", 
+              "name": null
+            }, 
+            "seriesOverrides": [], 
+            "percentage": false, 
+            "type": "graph", 
+            "transparent": false, 
+            "stack": false, 
+            "timeShift": null, 
+            "aliasColors": {}, 
+            "lines": true, 
+            "points": false, 
+            "datasource": "prometheus", 
+            "pointradius": 5
+          }, 
+          {
+            "bars": false, 
+            "timeFrom": null, 
+            "links": [], 
+            "thresholds": [], 
+            "nullPointMode": "null", 
+            "renderer": "flot", 
+            "id": 13, 
+            "linewidth": 1, 
+            "steppedLine": false, 
+            "targets": [
+              {
+                "expr": "sum(interface_counters_rx_bps{role=~\"$role\", blueprint=~\"$blueprint\"} - interface_counters_tx_bps{role=~\"$role\", blueprint=~\"$blueprint\"}) by (device)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ device }} - Diff Rx/Tx", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "fill": 1, 
+            "span": 3, 
             "title": "Diff In / Out", 
             "tooltip": {
               "sort": 0, 
@@ -488,12 +1042,12 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 7, 
+            "id": 14, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(system_info_cpu_system{role=~\"$role\"}) by (device)", 
+                "expr": "sum(system_info_cpu_system{role =~ \"$role\", blueprint=~\"$blueprint\"}) by (device)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "{{ device }}", 
@@ -562,12 +1116,12 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 8, 
+            "id": 15, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
               {
-                "expr": "sum(system_info_memory_used{role=~\"$role\"}) by (device)", 
+                "expr": "sum(system_info_memory_used{role =~ \"$role\", blueprint=~\"$blueprint\"}) by (device)", 
                 "metric": "", 
                 "step": 2, 
                 "legendFormat": "{{ device }}", 
@@ -721,6 +1275,7 @@
       ]
     }, 
     "originalTitle": "Apstra AOS Blueprint", 
+    "theme": "light", 
     "timepicker": {
       "status": "Stable", 
       "notice": false, 

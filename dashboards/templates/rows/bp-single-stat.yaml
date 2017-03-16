@@ -1,0 +1,9 @@
+
+template: row_base_open.j2
+
+height: 30px
+panels:
+  graphs:
+    - bp-nbr-spine.yaml
+    - bp-nbr-leaf.yaml
+    - bp-nbr-l3server.yaml
