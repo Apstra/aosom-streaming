@@ -4,13 +4,13 @@ The Aosom Streaming project provide a packaged solution to collect and visualize
 telemetry streaming information coming from an AOS Server.
 
 The solution includes:
-- A graphical Interface (port 3000) - Gafana
+- A graphical Interface based on *Grafana* (port 3000)
 - 2 Databases:
- - (port 9090) - Prometheus for Alerts and counters
- - (port 8086) - INfluxdb for events
-- 2 Collectors, one for each database based on Telegraf.
+  - *Prometheus* for Counters and Alerts (port 9090)
+  - *Influxdb* for Events (port 8086)
+- 2 Collectors, one for each database based on *Telegraf*.
 
-# Requirement
+# Requirements
 
 You need to have `docker` and `docker-compose` installed on your system to use this project.
 
@@ -98,3 +98,7 @@ clean                          Delete Grafana information and delete current str
 clean-docker                   Delete Grafana information
 clean-aos                      Delete current streaming session on AOS
 ```
+
+# Troubleshooting
+
+ TODO
