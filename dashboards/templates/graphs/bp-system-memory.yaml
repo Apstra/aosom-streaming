@@ -7,7 +7,7 @@ span: 6
 
 targets:
   A:
-    expr: sum(system_info_memory_used{role=~"$role"}) by (device)
+    expr: sum(system_info_memory_used{role =~ "$role", blueprint=~"$blueprint"}) by (device)
     legend: "{{ device }}"
 
 yaxes:
@@ -17,3 +17,4 @@ yaxes:
 
 templatings_used:
   - role.yaml
+  - blueprint.yaml

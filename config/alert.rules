@@ -1,2 +1,21 @@
 
-aos_total_pps = sum(interface_counters_tx_unicast_packets + interface_counters_tx_broadcast_packets + interface_counters_tx_multicast_packets) by (device)
+interface_counters_rx_bps = interface_counters_rx_bytes/5
+interface_counters_tx_bps = interface_counters_tx_bytes/5
+
+interface_counters_rx_unicast_pps = interface_counters_rx_unicast_packets
+interface_counters_rx_broadcast_pps = interface_counters_rx_broadcast_packets
+interface_counters_rx_multicast_pps = interface_counters_rx_multicast_packets
+
+interface_counters_tx_unicast_pps = interface_counters_tx_unicast_packets
+interface_counters_tx_broadcast_pps = interface_counters_tx_broadcast_packets
+interface_counters_tx_multicast_pps = interface_counters_tx_multicast_packets
+
+interface_counters_rx_discard_pps = interface_counters_rx_discard_packets/5
+interface_counters_tx_discard_pps = interface_counters_tx_discard_packets/5
+
+interface_counters_rx_error_pps = interface_counters_rx_error_packets/5
+interface_counters_tx_error_pps = interface_counters_tx_error_packets/5
+
+alert_liveness_status_clean{actual_agents="", expected_agents=""} = alert_liveness_status
+
+interface_counters_total_pps = sum(interface_counters_tx_unicast_pps + interface_counters_tx_broadcast_pps + interface_counters_rx_unicast_pps + interface_counters_rx_broadcast_pps + interface_counters_rx_multicast_pps) by (device, role, blueprint)

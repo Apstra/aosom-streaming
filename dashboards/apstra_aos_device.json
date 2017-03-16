@@ -28,7 +28,7 @@
                 "op": "="
               }
             ], 
-            "thresholds": "", 
+            "thresholds": "1,1", 
             "rangeMaps": [
               {
                 "text": "N/A", 
@@ -49,7 +49,83 @@
             "maxDataPoints": 100, 
             "mappingType": 1, 
             "span": 1, 
-            "colorBackground": false, 
+            "colorBackground": true, 
+            "title": "Liveness", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(alert_liveness_status_clean{device=~\"$device\"})", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
+          }, 
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 2, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
             "title": "BGP", 
             "sparkline": {
               "full": false, 
@@ -76,9 +152,9 @@
             "postfix": "", 
             "interval": null, 
             "colors": [
-              "rgba(245, 54, 54, 0.9)", 
-              "rgba(237, 129, 40, 0.89)", 
-              "rgba(50, 172, 45, 0.97)"
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
             ], 
             "datasource": "prometheus", 
             "nullText": null, 
@@ -104,7 +180,7 @@
                 "op": "="
               }
             ], 
-            "thresholds": "", 
+            "thresholds": "1,1", 
             "rangeMaps": [
               {
                 "text": "N/A", 
@@ -121,11 +197,11 @@
               "maxValue": 100, 
               "minValue": 0
             }, 
-            "id": 2, 
+            "id": 3, 
             "maxDataPoints": 100, 
             "mappingType": 1, 
             "span": 1, 
-            "colorBackground": false, 
+            "colorBackground": true, 
             "title": "Route", 
             "sparkline": {
               "full": false, 
@@ -152,9 +228,9 @@
             "postfix": "", 
             "interval": null, 
             "colors": [
-              "rgba(245, 54, 54, 0.9)", 
-              "rgba(237, 129, 40, 0.89)", 
-              "rgba(50, 172, 45, 0.97)"
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
             ], 
             "datasource": "prometheus", 
             "nullText": null, 
@@ -180,7 +256,7 @@
                 "op": "="
               }
             ], 
-            "thresholds": "", 
+            "thresholds": "1,1", 
             "rangeMaps": [
               {
                 "text": "N/A", 
@@ -197,11 +273,11 @@
               "maxValue": 100, 
               "minValue": 0
             }, 
-            "id": 3, 
+            "id": 4, 
             "maxDataPoints": 100, 
             "mappingType": 1, 
             "span": 1, 
-            "colorBackground": false, 
+            "colorBackground": true, 
             "title": "Link", 
             "sparkline": {
               "full": false, 
@@ -228,9 +304,9 @@
             "postfix": "", 
             "interval": null, 
             "colors": [
-              "rgba(245, 54, 54, 0.9)", 
-              "rgba(237, 129, 40, 0.89)", 
-              "rgba(50, 172, 45, 0.97)"
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
             ], 
             "datasource": "prometheus", 
             "nullText": null, 
@@ -256,7 +332,7 @@
                 "op": "="
               }
             ], 
-            "thresholds": "", 
+            "thresholds": "1,1", 
             "rangeMaps": [
               {
                 "text": "N/A", 
@@ -273,11 +349,11 @@
               "maxValue": 100, 
               "minValue": 0
             }, 
-            "id": 4, 
+            "id": 5, 
             "maxDataPoints": 100, 
             "mappingType": 1, 
             "span": 1, 
-            "colorBackground": false, 
+            "colorBackground": true, 
             "title": "Cable", 
             "sparkline": {
               "full": false, 
@@ -304,9 +380,9 @@
             "postfix": "", 
             "interval": null, 
             "colors": [
-              "rgba(245, 54, 54, 0.9)", 
-              "rgba(237, 129, 40, 0.89)", 
-              "rgba(50, 172, 45, 0.97)"
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
             ], 
             "datasource": "prometheus", 
             "nullText": null, 
@@ -332,7 +408,7 @@
                 "op": "="
               }
             ], 
-            "thresholds": "", 
+            "thresholds": "1,1", 
             "rangeMaps": [
               {
                 "text": "N/A", 
@@ -349,11 +425,11 @@
               "maxValue": 100, 
               "minValue": 0
             }, 
-            "id": 5, 
+            "id": 6, 
             "maxDataPoints": 100, 
             "mappingType": 1, 
             "span": 1, 
-            "colorBackground": false, 
+            "colorBackground": true, 
             "title": "Config", 
             "sparkline": {
               "full": false, 
@@ -380,14 +456,544 @@
             "postfix": "", 
             "interval": null, 
             "colors": [
-              "rgba(245, 54, 54, 0.9)", 
-              "rgba(237, 129, 40, 0.89)", 
-              "rgba(50, 172, 45, 0.97)"
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
             ], 
             "datasource": "prometheus", 
             "nullText": null, 
             "postfixFontSize": "50%", 
             "colorValue": false
+          }
+        ], 
+        "showTitle": true
+      }, 
+      {
+        "collapse": false, 
+        "title": "Traffic", 
+        "editable": true, 
+        "height": "250px", 
+        "panels": [
+          {
+            "bars": false, 
+            "timeFrom": null, 
+            "links": [], 
+            "thresholds": [], 
+            "nullPointMode": "null", 
+            "renderer": "flot", 
+            "id": 7, 
+            "linewidth": 1, 
+            "steppedLine": false, 
+            "targets": [
+              {
+                "expr": "sum(interface_counters_tx_unicast_pps{device=~\"$device\"} + interface_counters_tx_broadcast_pps{device=~\"$device\"} + interface_counters_tx_multicast_pps{device=~\"$device\"}) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - TX", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }, 
+              {
+                "expr": "sum(interface_counters_rx_unicast_pps{device=~\"$device\"} + interface_counters_rx_broadcast_pps{device=~\"$device\"} + interface_counters_rx_multicast_pps{device=~\"$device\"}) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - RX", 
+                "intervalFactor": 2, 
+                "refId": "B"
+              }
+            ], 
+            "fill": 1, 
+            "span": 4, 
+            "title": "Traffic Total (PPS)", 
+            "tooltip": {
+              "sort": 0, 
+              "shared": true, 
+              "value_type": "individual"
+            }, 
+            "legend": {
+              "total": false, 
+              "show": false, 
+              "max": true, 
+              "min": true, 
+              "current": true, 
+              "values": true, 
+              "alignAsTable": true, 
+              "avg": true
+            }, 
+            "yaxes": [
+              {
+                "logBase": 1, 
+                "format": "pps", 
+                "max": null, 
+                "min": null, 
+                "label": "RX / TX", 
+                "show": true
+              }, 
+              {
+                "logBase": 1, 
+                "format": "short", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }
+            ], 
+            "xaxis": {
+              "show": true, 
+              "values": [], 
+              "mode": "time", 
+              "name": null
+            }, 
+            "seriesOverrides": [
+              {
+                "alias": "/RX/", 
+                "transform": "negative-Y"
+              }
+            ], 
+            "percentage": false, 
+            "type": "graph", 
+            "transparent": false, 
+            "stack": false, 
+            "timeShift": null, 
+            "aliasColors": {}, 
+            "lines": true, 
+            "points": false, 
+            "datasource": "prometheus", 
+            "pointradius": 5
+          }, 
+          {
+            "bars": false, 
+            "timeFrom": null, 
+            "links": [], 
+            "thresholds": [], 
+            "nullPointMode": "null", 
+            "renderer": "flot", 
+            "id": 8, 
+            "linewidth": 1, 
+            "steppedLine": false, 
+            "targets": [
+              {
+                "expr": "avg(interface_counters_tx_bytes{device=~\"$device\"}/5) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - TX", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }, 
+              {
+                "expr": "avg(interface_counters_rx_bytes{device=~\"$device\"}/5) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - RX", 
+                "intervalFactor": 2, 
+                "refId": "B"
+              }
+            ], 
+            "fill": 1, 
+            "span": 4, 
+            "title": "Traffic Statistics (BPS)", 
+            "tooltip": {
+              "sort": 0, 
+              "shared": true, 
+              "value_type": "individual"
+            }, 
+            "legend": {
+              "total": false, 
+              "show": false, 
+              "max": true, 
+              "min": true, 
+              "current": true, 
+              "values": true, 
+              "alignAsTable": true, 
+              "avg": true
+            }, 
+            "yaxes": [
+              {
+                "logBase": 1, 
+                "format": "bps", 
+                "max": null, 
+                "min": null, 
+                "label": "RX / TX", 
+                "show": true
+              }, 
+              {
+                "logBase": 1, 
+                "format": "short", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }
+            ], 
+            "xaxis": {
+              "show": true, 
+              "values": [], 
+              "mode": "time", 
+              "name": null
+            }, 
+            "seriesOverrides": [
+              {
+                "alias": "/RX/", 
+                "transform": "negative-Y"
+              }
+            ], 
+            "percentage": false, 
+            "type": "graph", 
+            "transparent": false, 
+            "stack": false, 
+            "timeShift": null, 
+            "aliasColors": {}, 
+            "lines": true, 
+            "points": false, 
+            "datasource": "prometheus", 
+            "pointradius": 5
+          }, 
+          {
+            "bars": false, 
+            "timeFrom": null, 
+            "links": [], 
+            "thresholds": [], 
+            "nullPointMode": "null", 
+            "renderer": "flot", 
+            "id": 9, 
+            "linewidth": 1, 
+            "steppedLine": false, 
+            "targets": [
+              {
+                "expr": "sum(interface_counters_tx_unicast_packets{device=~\"$device\"}/5 + interface_counters_rx_unicast_packets{device=~\"$device\"}/5) by (device)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "Unicast", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }, 
+              {
+                "expr": "sum(interface_counters_tx_multicast_packets{device=~\"$device\"}/5 + interface_counters_rx_multicast_packets{device=~\"$device\"}/5) by (device)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "Multicast", 
+                "intervalFactor": 2, 
+                "refId": "C"
+              }, 
+              {
+                "expr": "sum(interface_counters_tx_broadcast_packets{device=~\"$device\"}/5 + interface_counters_rx_broadcast_packets{device=~\"$device\"}/5) by (device)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "Boadcast", 
+                "intervalFactor": 2, 
+                "refId": "B"
+              }
+            ], 
+            "fill": 1, 
+            "span": 4, 
+            "title": "Type of Traffic", 
+            "tooltip": {
+              "sort": 0, 
+              "shared": true, 
+              "value_type": "individual"
+            }, 
+            "legend": {
+              "total": false, 
+              "show": false, 
+              "max": true, 
+              "min": true, 
+              "current": true, 
+              "values": true, 
+              "alignAsTable": true, 
+              "avg": true
+            }, 
+            "yaxes": [
+              {
+                "logBase": 1, 
+                "format": "pps", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }, 
+              {
+                "logBase": 1, 
+                "format": "short", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }
+            ], 
+            "xaxis": {
+              "show": true, 
+              "values": [], 
+              "mode": "time", 
+              "name": null
+            }, 
+            "seriesOverrides": [], 
+            "percentage": false, 
+            "type": "graph", 
+            "transparent": false, 
+            "stack": false, 
+            "timeShift": null, 
+            "aliasColors": {}, 
+            "lines": true, 
+            "points": false, 
+            "datasource": "prometheus", 
+            "pointradius": 5
+          }
+        ], 
+        "showTitle": true
+      }, 
+      {
+        "collapse": false, 
+        "title": "Traffic Error / Discard", 
+        "editable": true, 
+        "height": "250px", 
+        "panels": [
+          {
+            "bars": false, 
+            "timeFrom": null, 
+            "links": [], 
+            "thresholds": [], 
+            "nullPointMode": "null", 
+            "renderer": "flot", 
+            "id": 10, 
+            "linewidth": 1, 
+            "steppedLine": false, 
+            "targets": [
+              {
+                "expr": "avg(interface_counters_rx_discard_pps{device=~\"$device\"}) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - RX", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }, 
+              {
+                "expr": "avg(interface_counters_tx_discard_pps{device=~\"$device\"}) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - TX", 
+                "intervalFactor": 2, 
+                "refId": "B"
+              }
+            ], 
+            "fill": 1, 
+            "span": 4, 
+            "title": "Traffic Discarded (pps)", 
+            "tooltip": {
+              "sort": 0, 
+              "shared": true, 
+              "value_type": "individual"
+            }, 
+            "legend": {
+              "total": false, 
+              "show": false, 
+              "max": true, 
+              "min": true, 
+              "current": true, 
+              "values": true, 
+              "alignAsTable": true, 
+              "avg": true
+            }, 
+            "yaxes": [
+              {
+                "logBase": 1, 
+                "format": "pps", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }, 
+              {
+                "logBase": 1, 
+                "format": "short", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }
+            ], 
+            "xaxis": {
+              "show": true, 
+              "values": [], 
+              "mode": "time", 
+              "name": null
+            }, 
+            "seriesOverrides": [
+              {
+                "alias": "/RX/", 
+                "transform": "negative-Y"
+              }
+            ], 
+            "percentage": false, 
+            "type": "graph", 
+            "transparent": false, 
+            "stack": false, 
+            "timeShift": null, 
+            "aliasColors": {}, 
+            "lines": true, 
+            "points": false, 
+            "datasource": "prometheus", 
+            "pointradius": 5
+          }, 
+          {
+            "bars": false, 
+            "timeFrom": null, 
+            "links": [], 
+            "thresholds": [], 
+            "nullPointMode": "null", 
+            "renderer": "flot", 
+            "id": 11, 
+            "linewidth": 1, 
+            "steppedLine": false, 
+            "targets": [
+              {
+                "expr": "avg(interface_counters_rx_error_pps{device=~\"$device\"}) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - RX", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }, 
+              {
+                "expr": "avg(interface_counters_tx_error_pps{device=~\"$device\"}) by (device, interface)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ interface }} - TX", 
+                "intervalFactor": 2, 
+                "refId": "B"
+              }
+            ], 
+            "fill": 1, 
+            "span": 4, 
+            "title": "Traffic Error (pps)", 
+            "tooltip": {
+              "sort": 0, 
+              "shared": true, 
+              "value_type": "individual"
+            }, 
+            "legend": {
+              "total": false, 
+              "show": false, 
+              "max": true, 
+              "min": true, 
+              "current": true, 
+              "values": true, 
+              "alignAsTable": true, 
+              "avg": true
+            }, 
+            "yaxes": [
+              {
+                "logBase": 1, 
+                "format": "pps", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }, 
+              {
+                "logBase": 1, 
+                "format": "short", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }
+            ], 
+            "xaxis": {
+              "show": true, 
+              "values": [], 
+              "mode": "time", 
+              "name": null
+            }, 
+            "seriesOverrides": [
+              {
+                "alias": "/RX/", 
+                "transform": "negative-Y"
+              }
+            ], 
+            "percentage": false, 
+            "type": "graph", 
+            "transparent": false, 
+            "stack": false, 
+            "timeShift": null, 
+            "aliasColors": {}, 
+            "lines": true, 
+            "points": false, 
+            "datasource": "prometheus", 
+            "pointradius": 5
+          }, 
+          {
+            "bars": false, 
+            "timeFrom": null, 
+            "links": [], 
+            "thresholds": [], 
+            "nullPointMode": "null", 
+            "renderer": "flot", 
+            "id": 12, 
+            "linewidth": 1, 
+            "steppedLine": false, 
+            "targets": [
+              {
+                "expr": "sum(interface_counters_rx_bps{device=~\"$device\"} - interface_counters_tx_bps{device=~\"$device\"}) by (device)", 
+                "metric": "", 
+                "step": 2, 
+                "legendFormat": "{{ device }} - Diff Rx/Tx", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "fill": 1, 
+            "span": 4, 
+            "title": "Traffic Dropped (bps)", 
+            "tooltip": {
+              "sort": 0, 
+              "shared": true, 
+              "value_type": "individual"
+            }, 
+            "legend": {
+              "total": false, 
+              "show": false, 
+              "max": true, 
+              "min": true, 
+              "current": true, 
+              "values": true, 
+              "alignAsTable": true, 
+              "avg": true
+            }, 
+            "yaxes": [
+              {
+                "logBase": 1, 
+                "format": "bps", 
+                "max": null, 
+                "min": null, 
+                "label": "Rx - Tx", 
+                "show": true
+              }, 
+              {
+                "logBase": 1, 
+                "format": "short", 
+                "max": null, 
+                "min": null, 
+                "label": "", 
+                "show": true
+              }
+            ], 
+            "xaxis": {
+              "show": true, 
+              "values": [], 
+              "mode": "time", 
+              "name": null
+            }, 
+            "seriesOverrides": [], 
+            "percentage": false, 
+            "type": "graph", 
+            "transparent": false, 
+            "stack": false, 
+            "timeShift": null, 
+            "aliasColors": {}, 
+            "lines": true, 
+            "points": false, 
+            "datasource": "prometheus", 
+            "pointradius": 5
           }
         ], 
         "showTitle": true
@@ -405,7 +1011,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 6, 
+            "id": 13, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -487,7 +1093,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 7, 
+            "id": 14, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -578,7 +1184,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 8, 
+            "id": 15, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -652,7 +1258,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 9, 
+            "id": 16, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -690,279 +1296,6 @@
                 "max": null, 
                 "min": null, 
                 "label": "Memory Used", 
-                "show": true
-              }, 
-              {
-                "logBase": 1, 
-                "format": "short", 
-                "max": null, 
-                "min": null, 
-                "label": "", 
-                "show": true
-              }
-            ], 
-            "xaxis": {
-              "show": true, 
-              "values": [], 
-              "mode": "time", 
-              "name": null
-            }, 
-            "seriesOverrides": [], 
-            "percentage": false, 
-            "type": "graph", 
-            "transparent": false, 
-            "stack": false, 
-            "timeShift": null, 
-            "aliasColors": {}, 
-            "lines": true, 
-            "points": false, 
-            "datasource": "prometheus", 
-            "pointradius": 5
-          }
-        ], 
-        "showTitle": true
-      }, 
-      {
-        "collapse": false, 
-        "title": "Traffic", 
-        "editable": true, 
-        "height": "250px", 
-        "panels": [
-          {
-            "bars": false, 
-            "timeFrom": null, 
-            "links": [], 
-            "thresholds": [], 
-            "nullPointMode": "null", 
-            "renderer": "flot", 
-            "id": 10, 
-            "linewidth": 1, 
-            "steppedLine": false, 
-            "targets": [
-              {
-                "expr": "avg(interface_counters_tx_unicast_packets{device=~\"$device\"}/5 + interface_counters_tx_broadcast_packets{device=~\"$device\"}/5 + interface_counters_tx_multicast_packets{device=~\"$device\"}/5) by (device, interface)", 
-                "metric": "", 
-                "step": 2, 
-                "legendFormat": "{{ interface }} - TX", 
-                "intervalFactor": 2, 
-                "refId": "A"
-              }, 
-              {
-                "expr": "avg(interface_counters_rx_unicast_packets{device=~\"$device\"}/5 + interface_counters_rx_broadcast_packets{device=~\"$device\"}/5 + interface_counters_rx_multicast_packets{device=~\"$device\"}/5) by (device, interface)", 
-                "metric": "", 
-                "step": 2, 
-                "legendFormat": "{{ interface }} - RX", 
-                "intervalFactor": 2, 
-                "refId": "B"
-              }
-            ], 
-            "fill": 1, 
-            "span": 4, 
-            "title": "Traffic Total (PPS)", 
-            "tooltip": {
-              "sort": 0, 
-              "shared": true, 
-              "value_type": "individual"
-            }, 
-            "legend": {
-              "total": false, 
-              "show": false, 
-              "max": true, 
-              "min": true, 
-              "current": true, 
-              "values": true, 
-              "alignAsTable": true, 
-              "avg": true
-            }, 
-            "yaxes": [
-              {
-                "logBase": 1, 
-                "format": "pps", 
-                "max": null, 
-                "min": null, 
-                "label": "RX / TX", 
-                "show": true
-              }, 
-              {
-                "logBase": 1, 
-                "format": "short", 
-                "max": null, 
-                "min": null, 
-                "label": "", 
-                "show": true
-              }
-            ], 
-            "xaxis": {
-              "show": true, 
-              "values": [], 
-              "mode": "time", 
-              "name": null
-            }, 
-            "seriesOverrides": [
-              {
-                "alias": "/RX/", 
-                "transform": "negative-Y"
-              }
-            ], 
-            "percentage": false, 
-            "type": "graph", 
-            "transparent": false, 
-            "stack": false, 
-            "timeShift": null, 
-            "aliasColors": {}, 
-            "lines": true, 
-            "points": false, 
-            "datasource": "prometheus", 
-            "pointradius": 5
-          }, 
-          {
-            "bars": false, 
-            "timeFrom": null, 
-            "links": [], 
-            "thresholds": [], 
-            "nullPointMode": "null", 
-            "renderer": "flot", 
-            "id": 11, 
-            "linewidth": 1, 
-            "steppedLine": false, 
-            "targets": [
-              {
-                "expr": "avg(interface_counters_tx_bytes{device=~\"$device\"}/5) by (device, interface)", 
-                "metric": "", 
-                "step": 2, 
-                "legendFormat": "{{ interface }} - TX", 
-                "intervalFactor": 2, 
-                "refId": "A"
-              }, 
-              {
-                "expr": "avg(interface_counters_rx_bytes{device=~\"$device\"}/5) by (device, interface)", 
-                "metric": "", 
-                "step": 2, 
-                "legendFormat": "{{ interface }} - RX", 
-                "intervalFactor": 2, 
-                "refId": "B"
-              }
-            ], 
-            "fill": 1, 
-            "span": 4, 
-            "title": "Traffic Statistics (BPS)", 
-            "tooltip": {
-              "sort": 0, 
-              "shared": true, 
-              "value_type": "individual"
-            }, 
-            "legend": {
-              "total": false, 
-              "show": false, 
-              "max": true, 
-              "min": true, 
-              "current": true, 
-              "values": true, 
-              "alignAsTable": true, 
-              "avg": true
-            }, 
-            "yaxes": [
-              {
-                "logBase": 1, 
-                "format": "bps", 
-                "max": null, 
-                "min": null, 
-                "label": "RX / TX", 
-                "show": true
-              }, 
-              {
-                "logBase": 1, 
-                "format": "short", 
-                "max": null, 
-                "min": null, 
-                "label": "", 
-                "show": true
-              }
-            ], 
-            "xaxis": {
-              "show": true, 
-              "values": [], 
-              "mode": "time", 
-              "name": null
-            }, 
-            "seriesOverrides": [
-              {
-                "alias": "/RX/", 
-                "transform": "negative-Y"
-              }
-            ], 
-            "percentage": false, 
-            "type": "graph", 
-            "transparent": false, 
-            "stack": false, 
-            "timeShift": null, 
-            "aliasColors": {}, 
-            "lines": true, 
-            "points": false, 
-            "datasource": "prometheus", 
-            "pointradius": 5
-          }, 
-          {
-            "bars": false, 
-            "timeFrom": null, 
-            "links": [], 
-            "thresholds": [], 
-            "nullPointMode": "null", 
-            "renderer": "flot", 
-            "id": 12, 
-            "linewidth": 1, 
-            "steppedLine": false, 
-            "targets": [
-              {
-                "expr": "sum(interface_counters_tx_unicast_packets{device=~\"$device\"}/5 + interface_counters_rx_unicast_packets{device=~\"$device\"}/5) by (device)", 
-                "metric": "", 
-                "step": 2, 
-                "legendFormat": "Unicast", 
-                "intervalFactor": 2, 
-                "refId": "A"
-              }, 
-              {
-                "expr": "sum(interface_counters_tx_multicast_packets{device=~\"$device\"}/5 + interface_counters_rx_multicast_packets{device=~\"$device\"}/5) by (device)", 
-                "metric": "", 
-                "step": 2, 
-                "legendFormat": "Multicast", 
-                "intervalFactor": 2, 
-                "refId": "C"
-              }, 
-              {
-                "expr": "sum(interface_counters_tx_broadcast_packets{device=~\"$device\"}/5 + interface_counters_rx_broadcast_packets{device=~\"$device\"}/5) by (device)", 
-                "metric": "", 
-                "step": 2, 
-                "legendFormat": "Boadcast", 
-                "intervalFactor": 2, 
-                "refId": "B"
-              }
-            ], 
-            "fill": 1, 
-            "span": 4, 
-            "title": "Type of Traffic", 
-            "tooltip": {
-              "sort": 0, 
-              "shared": true, 
-              "value_type": "individual"
-            }, 
-            "legend": {
-              "total": false, 
-              "show": false, 
-              "max": true, 
-              "min": true, 
-              "current": true, 
-              "values": true, 
-              "alignAsTable": true, 
-              "avg": true
-            }, 
-            "yaxes": [
-              {
-                "logBase": 1, 
-                "format": "pps", 
-                "max": null, 
-                "min": null, 
-                "label": "", 
                 "show": true
               }, 
               {
@@ -1037,18 +1370,6 @@
       "list": [
         {
           "enable": true, 
-          "name": "BGP", 
-          "iconSize": 13, 
-          "textColumn": "None", 
-          "titleColumn": "BGP", 
-          "datasource": "influxdb", 
-          "showLine": "True", 
-          "query": "SELECT * FROM event_bgp_neighbor WHERE state = 'BGP_SESSION_DOWN' AND device =~ /$device/ AND $timeFilter", 
-          "tagsColumn": "device, rmt_asn", 
-          "iconColor": "rgba(156, 143, 2, 0.95)"
-        }, 
-        {
-          "enable": true, 
           "name": "Link", 
           "iconSize": 13, 
           "textColumn": "None", 
@@ -1058,6 +1379,18 @@
           "query": "SELECT * FROM event_link_status WHERE state = 'LINK_DOWN' AND device =~ /$device/ AND $timeFilter", 
           "tagsColumn": "device, ifname", 
           "iconColor": "rgba(255, 96, 96, 1)"
+        }, 
+        {
+          "enable": true, 
+          "name": "BGP", 
+          "iconSize": 13, 
+          "textColumn": "None", 
+          "titleColumn": "BGP", 
+          "datasource": "influxdb", 
+          "showLine": "True", 
+          "query": "SELECT * FROM event_bgp_neighbor WHERE state = 'BGP_SESSION_DOWN' AND device =~ /$device/ AND $timeFilter", 
+          "tagsColumn": "device, rmt_asn", 
+          "iconColor": "rgba(156, 143, 2, 0.95)"
         }
       ]
     }, 

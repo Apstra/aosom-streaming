@@ -1,0 +1,12 @@
+
+title: Alerts
+height: 50px
+template: row_base_open.j2
+panels:
+  graphs:
+    - dev-alert-liveness.yaml
+    - dev-alert-bgp.yaml
+    - dev-alert-route.yaml
+    - dev-alert-link.yaml
+    - dev-alert-cable.yaml
+    - dev-alert-config.yaml

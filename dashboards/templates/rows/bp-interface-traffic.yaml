@@ -1,0 +1,10 @@
+
+title: Traffic
+height: 250px
+template: row_base_open.j2
+panels:
+  graphs:
+    - bp-int-pkts-sum.yaml
+    - bp-int-bytes-sum.yaml
+    - bp-int-error-sum.yaml
+    - bp-traffic-drop.yaml

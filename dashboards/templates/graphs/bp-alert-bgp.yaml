@@ -1,0 +1,14 @@
+
+
+title: "BGP"
+template: prom-singlestat-line-color.j2
+datasource: prometheus
+span: 1
+
+targets:
+  A:
+    expr: sum(alert_bgp_neighbor_mismatch_status{role=~"$role", blueprint=~"$blueprint"})
+
+templatings_used:
+  - role.yaml
+  - blueprint.yaml

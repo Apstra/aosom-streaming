@@ -3,14 +3,14 @@
 title: "Traffic Statistics (BPS)"
 template: prom-graph-lines-01.j2
 datasource: prometheus
-span: 4
+span: 3
 
 targets:
   A:
-    expr: sum(interface_counters_tx_bytes{role=~"$role"}) by (device)
+    expr: sum(interface_counters_tx_bps{role=~"$role", blueprint=~"$blueprint"}) by (device)
     legend: "{{ device }} - TX"
-  A:
-    expr: sum(interface_counters_rx_bytes{role=~"$role"}) by (device)
+  B:
+    expr: sum(interface_counters_rx_bps{role=~"$role", blueprint=~"$blueprint"}) by (device)
     legend: "{{ device }} -  RX"
 
 yaxes:
@@ -24,3 +24,4 @@ series_overrides:
 
 templatings_used:
   - role.yaml
+  - blueprint.yaml

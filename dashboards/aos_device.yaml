@@ -17,11 +17,13 @@ templatings:
   - device.yaml
 
 annotations:
-  - dev_link_down.yaml
-  - dev_bgp_down.yaml
+  - dev-link-down.yaml
+  - dev-bgp-down.yaml
+  # - dev_link_up.yaml
 
 rows:
-  - dev_alerts.yaml
-  - dev_system_info.yaml
-  - dev_process_info.yaml
-  - dev_interface_traffic.yaml
+  - dev-alerts.yaml
+  - dev-interface-traffic.yaml
+  - dev-interface-error.yaml
+  - dev-system-info.yaml
+  - dev-process-info.yaml

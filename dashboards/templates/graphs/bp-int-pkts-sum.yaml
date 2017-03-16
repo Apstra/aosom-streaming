@@ -1,0 +1,19 @@
+
+
+title: "Traffic Total (PPS)"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 3
+
+targets:
+  A:
+    expr: avg(interface_counters_total_pps{ role=~"$role", blueprint=~"$blueprint"}) by (device)
+    legend: "{{ device }}"
+
+yaxes:
+  - format: pps
+  - format: short
+
+templatings_used:
+  - role.yaml
+  - blueprint.yaml

@@ -4,5 +4,5 @@ height: 250px
 template: row_base_open.j2
 panels:
   graphs:
-    - prom-bp-system-cpu.yaml
-    - prom-bp-system-memory.yaml
+    - bp-system-cpu.yaml
+    - bp-system-memory.yaml

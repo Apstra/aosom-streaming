@@ -1,5 +1,4 @@
 
-
 title: "Spine"
 template: prom-singlestat.j2
 datasource: prometheus
@@ -10,4 +9,3 @@ targets:
     expr: count(count by(device)(system_info_cpu_idle{role="spine"}))
 
 templatings_used: []
-#   - device.yaml

@@ -1,7 +1,7 @@
 
 
 title: "Cable"
-template: prom-singlestat-line.j2
+template: prom-singlestat-line-color.j2
 datasource: prometheus
 span: 1
 

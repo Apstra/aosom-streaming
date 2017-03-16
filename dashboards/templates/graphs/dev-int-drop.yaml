@@ -1,0 +1,19 @@
+
+
+title: "Traffic Dropped (bps)"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 4
+
+targets:
+  A:
+    expr:  sum(interface_counters_rx_bps{device=~"$device"} - interface_counters_tx_bps{device=~"$device"}) by (device)
+    legend: "{{ device }} - Diff Rx/Tx"
+
+yaxes:
+  - format: bps
+    label: Rx - Tx
+  - format: short
+
+templatings_used:
+   - device.yaml

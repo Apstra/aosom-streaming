@@ -1,0 +1,22 @@
+
+
+title: "Traffic Error / Discard"
+template: prom-graph-lines-01.j2
+datasource: prometheus
+span: 3
+
+targets:
+  A:
+    expr: sum(interface_counters_rx_discard_pps{role=~"$role", blueprint=~"$blueprint"} + interface_counters_tx_discard_pps{role=~"$role", blueprint=~"$blueprint"}) by (device)
+    legend: "{{ device }} - Discard"
+  B:
+    expr: sum(interface_counters_rx_error_pps{role=~"$role", blueprint=~"$blueprint"} + interface_counters_tx_error_pps{role=~"$role", blueprint=~"$blueprint"}) by (device)
+    legend: "{{ device }} - Error"
+
+yaxes:
+  - format: pps
+  - format: short
+
+templatings_used:
+  - role.yaml
+  - blueprint.yaml
