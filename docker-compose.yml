@@ -1,7 +1,6 @@
 
 version: '2'
 volumes:
-    # prometheus_data: {}
     grafana_data_2: {}
 services:
 # -------------------------------------------------------------------------
@@ -9,11 +8,12 @@ services:
 # -------------------------------------------------------------------------
   grafana:
     image: grafana/grafana:4.1.2
-    environment:
-      - "GF_SECURITY_ADMIN_PASSWORD=admin"
+    # environment:
+    #   - "GF_SECURITY_ADMIN_PASSWORD=admin"
     volumes:
       - /etc/localtime:/etc/localtime
       - grafana_data_2:/var/lib/grafana
+      - ./config/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - prometheus
     ports:
@@ -26,8 +26,8 @@ services:
     image: prom/prometheus:v1.5.2
     volumes:
         - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
-        - /etc/localtime:/etc/localtime
         - ./config/alert.rules:/etc/prometheus/alert.rules
+        - /etc/localtime:/etc/localtime
     command:
         - '-config.file=/etc/prometheus/prometheus.yml'
         # - '-alertmanager.url=http://10.0.7.157:9999'
@@ -73,6 +73,7 @@ services:
 # -------------------------------------------------------------------------
   telegraf-influx:
     image: 10.1.2.21:5000/telegraf
+    # command: tail -f /etc/telegraf/telegraf.conf
     command: telegraf -debug
     env_file:
       - variables.env
