@@ -82,6 +82,8 @@
   # Address of the server running Telegraf, it needs to be reacheable from AOS
   address = "$LOCAL_IP"
 
+  refresh_interval = 20
+
   # Streaming Type Can be "perfmon", "alerts" or "events"
   streaming_type = [ "events" ]
 
