@@ -56,7 +56,7 @@ services:
 # Telegraf - Prom
 # -------------------------------------------------------------------------
   telegraf-prom:
-    image: 10.1.2.21:5000/telegraf:perfmon-generic
+    image: apstra/telegraf:1.2
     command: telegraf -debug
     env_file:
       - variables.env
@@ -71,7 +71,7 @@ services:
 # Telegraf - Influx
 # -------------------------------------------------------------------------
   telegraf-influx:
-    image: 10.1.2.21:5000/telegraf:perfmon-generic
+    image: apstra/telegraf:1.2
     command: telegraf -debug
     env_file:
       - variables.env
