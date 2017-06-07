@@ -32,13 +32,6 @@ services:
     ports:
         - '9090:9090'
 
-  # alertmanager:
-  #     image: prom/alertmanager:v0.5.1
-  #     volumes:
-  #       - ./alertmanager.yml:/alertmanager.yml
-  #       - /etc/localtime:/etc/localtime
-  #     command:
-  #         - '-config.file=/alertmanager.yml'
 # -------------------------------------------------------------------------
 # influxdb
 # -------------------------------------------------------------------------
