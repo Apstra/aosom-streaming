@@ -28,7 +28,6 @@ services:
         - /etc/localtime:/etc/localtime
     command:
         - '-config.file=/etc/prometheus/prometheus.yml'
-        # - '-alertmanager.url=http://10.0.7.157:9999'
     ports:
         - '9090:9090'
 
