@@ -68,6 +68,8 @@
   # Streaming Type Can be "perfmon", "alerts" or "events"
   streaming_type = [ "perfmon", "alerts" ]
 
+  refresh_interval = 20
+  
   # Define parameter to join the AOS Server using the REST API
   aos_server = "$AOS_SERVER"
   aos_port = $AOS_PORT
