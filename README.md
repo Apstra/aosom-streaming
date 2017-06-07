@@ -14,15 +14,15 @@ The solution includes:
 
 You need to have `docker` and `docker-compose` installed on your system to use this project.
 
-> This project has been tested on AOS version 1.1.1
+> This project has been tested on AOS version 1.2
 
 # Getting Started
 ### Configure
 
 Update the following information in `variables.env` to match your environment.
 ```
-AOS_SERVER=172.20.187.3
-LOCAL_IP=10.0.7.157
+AOS_SERVER=192.168.59.250
+LOCAL_IP=192.168.59.1
 ```
 
 > LOCAL_IP is the external IP where this project is running, this IP must be accessible from the AOS server
