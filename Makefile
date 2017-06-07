@@ -66,15 +66,15 @@ update-docker:
 	@docker-compose pull --ignore-pull-failures
 
 ## Delete Grafana information and delete current streaming session on AOS (clean-docker clean-aos)
-clean: clean-docker clean-aos
+clean: clean-docker # clean-aos
 
 ## Delete Grafana information
 clean-docker:
 	@echo "-- Delete all Data in Grafana (Grafana must be stopped) --"
 	docker volume rm aosomstreaming_grafana_data_2
-
-## Delete current streaming session on AOS
-clean-aos:
-	@export $(shell cat variables.env | xargs)
-	@echo "Delete all streaming session on the server (AOS server must be reacheable)"
-	ansible-playbook -i tools/hosts.ini tools/pb.streaming_delete.yaml
+#
+# ## Delete current streaming session on AOS
+# clean-aos:
+# 	@export $(shell cat variables.env | xargs)
+# 	@echo "Delete all streaming session on the server (AOS server must be reacheable)"
+# 	ansible-playbook -i tools/hosts.ini tools/pb.streaming_delete.yaml

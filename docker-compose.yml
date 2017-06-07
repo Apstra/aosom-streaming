@@ -28,17 +28,9 @@ services:
         - /etc/localtime:/etc/localtime
     command:
         - '-config.file=/etc/prometheus/prometheus.yml'
-        # - '-alertmanager.url=http://10.0.7.157:9999'
     ports:
         - '9090:9090'
 
-  # alertmanager:
-  #     image: prom/alertmanager:v0.5.1
-  #     volumes:
-  #       - ./alertmanager.yml:/alertmanager.yml
-  #       - /etc/localtime:/etc/localtime
-  #     command:
-  #         - '-config.file=/alertmanager.yml'
 # -------------------------------------------------------------------------
 # influxdb
 # -------------------------------------------------------------------------
@@ -56,7 +48,7 @@ services:
 # Telegraf - Prom
 # -------------------------------------------------------------------------
   telegraf-prom:
-    image: apstra/telegraf:0.0.3
+    image: apstra/telegraf:1.2
     command: telegraf -debug
     env_file:
       - variables.env
@@ -70,7 +62,7 @@ services:
 # Telegraf - Influx
 # -------------------------------------------------------------------------
   telegraf-influx:
-    image: apstra/telegraf:0.0.3
+    image: apstra/telegraf:1.2
     command: telegraf -debug
     env_file:
       - variables.env
