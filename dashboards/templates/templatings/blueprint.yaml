@@ -4,4 +4,4 @@ template: templating_prom_base.j2
 include_all: "false"
 name: blueprint
 label: Blueprint
-query: label_values(interface_counters_rx_bytes, blueprint)
+query: label_values(system_info_cpu_user, blueprint)
