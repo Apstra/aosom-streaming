@@ -19,13 +19,15 @@ You need to have `docker` and `docker-compose` installed on your system to use t
 # Getting Started
 ### Configure
 
-Update the following information in `variables.env` to match your environment.
+Make a copy of the file `variables.default` named `variables.env` and update the following information in `variables.env` to match your environment.
 ```
 AOS_SERVER=192.168.59.250
 LOCAL_IP=192.168.59.1
 ```
 
 > LOCAL_IP is the external IP where this project is running, this IP must be accessible from the AOS server
+
+> **!! The behavior of the project has changed since June 2017, previously it was not required to copy the variable file.**
 
 # User Guide
 
@@ -165,5 +167,3 @@ At bootup this container will:
 2017-06-05T23:33:25Z D! Output [prometheus_client] wrote batch of 144 metrics in 20.794011ms
 2017-06-05T23:33:28Z D! Finished to Refresh Data, will sleep for 30 sec
 ```
-
-### Check if Prometheus
