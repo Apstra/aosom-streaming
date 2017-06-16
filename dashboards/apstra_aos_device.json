@@ -1348,7 +1348,7 @@
           }, 
           "datasource": "prometheus", 
           "type": "query", 
-          "query": "label_values(interface_counters_rx_bytes, device)", 
+          "query": "label_values(system_info_cpu_user, device)", 
           "useTags": false, 
           "tagsQuery": "", 
           "options": [], 

@@ -4,4 +4,4 @@ template: templating_prom_multi_all.j2
 include_all: "true"
 name: role
 label: Role
-query: label_values(interface_counters_rx_bytes, role)
+query: label_values(system_info_cpu_user, role)
