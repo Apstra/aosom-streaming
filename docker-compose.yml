@@ -7,7 +7,7 @@ services:
 # Grafana - Graphical Interface
 # -------------------------------------------------------------------------
   grafana:
-    image: grafana/grafana:4.1.2
+    image: grafana/grafana:4.4.3
     volumes:
       - /etc/localtime:/etc/localtime
       - grafana_data_2:/var/lib/grafana
@@ -21,7 +21,7 @@ services:
 # Prometheus -
 # -------------------------------------------------------------------------
   prometheus:
-    image: prom/prometheus:v1.5.2
+    image: prom/prometheus:v1.7.1
     volumes:
         - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
         - ./config/alert.rules:/etc/prometheus/alert.rules
