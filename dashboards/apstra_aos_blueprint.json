@@ -700,6 +700,82 @@
             "nullText": null, 
             "postfixFontSize": "50%", 
             "colorValue": false
+          }, 
+          {
+            "mappingTypes": [
+              {
+                "name": "value to text", 
+                "value": 1
+              }, 
+              {
+                "name": "range to text", 
+                "value": 2
+              }
+            ], 
+            "links": [], 
+            "valueMaps": [
+              {
+                "text": "N/A", 
+                "value": "null", 
+                "op": "="
+              }
+            ], 
+            "thresholds": "1,1", 
+            "rangeMaps": [
+              {
+                "text": "N/A", 
+                "from": "null", 
+                "to": "null"
+              }
+            ], 
+            "nullPointMode": "connected", 
+            "prefix": "", 
+            "gauge": {
+              "thresholdLabels": false, 
+              "show": false, 
+              "thresholdMarkers": true, 
+              "maxValue": 100, 
+              "minValue": 0
+            }, 
+            "id": 10, 
+            "maxDataPoints": 100, 
+            "mappingType": 1, 
+            "span": 1, 
+            "colorBackground": true, 
+            "title": "Probe", 
+            "sparkline": {
+              "full": false, 
+              "fillColor": "rgba(31, 118, 189, 0.18)", 
+              "lineColor": "rgb(31, 120, 193)", 
+              "show": true
+            }, 
+            "targets": [
+              {
+                "expr": "sum(alert_probe_status==1)", 
+                "metric": "", 
+                "step": 60, 
+                "legendFormat": "", 
+                "intervalFactor": 2, 
+                "refId": "A"
+              }
+            ], 
+            "prefixFontSize": "50%", 
+            "valueName": "current", 
+            "type": "singlestat", 
+            "valueFontSize": "80%", 
+            "format": "none", 
+            "cacheTimeout": null, 
+            "postfix": "", 
+            "interval": null, 
+            "colors": [
+              "rgba(50, 172, 45, 0.02)", 
+              "rgba(220, 147, 87, 0.89)", 
+              "rgba(220, 147, 87, 0.89)"
+            ], 
+            "datasource": "prometheus", 
+            "nullText": null, 
+            "postfixFontSize": "50%", 
+            "colorValue": false
           }
         ], 
         "showTitle": true
@@ -717,7 +793,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 10, 
+            "id": 11, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -791,7 +867,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 11, 
+            "id": 12, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -878,7 +954,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 12, 
+            "id": 13, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -960,7 +1036,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 13, 
+            "id": 14, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -1043,7 +1119,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 14, 
+            "id": 15, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -1117,7 +1193,7 @@
             "thresholds": [], 
             "nullPointMode": "null", 
             "renderer": "flot", 
-            "id": 15, 
+            "id": 16, 
             "linewidth": 1, 
             "steppedLine": false, 
             "targets": [
@@ -1196,28 +1272,6 @@
           "sort": 1, 
           "multi": true, 
           "hide": 0, 
-          "name": "role", 
-          "tags": [], 
-          "allValue": ".*", 
-          "tagValuesQuery": "", 
-          "refresh": 1, 
-          "label": "Role", 
-          "current": {
-            "text": "All"
-          }, 
-          "datasource": "prometheus", 
-          "type": "query", 
-          "query": "label_values(system_info_cpu_user, role)", 
-          "useTags": false, 
-          "tagsQuery": "", 
-          "options": [], 
-          "includeAll": true
-        }, 
-        {
-          "regex": "", 
-          "sort": 1, 
-          "multi": true, 
-          "hide": 0, 
           "name": "blueprint", 
           "tags": [], 
           "allValue": null, 
@@ -1234,6 +1288,28 @@
           "tagsQuery": "", 
           "options": [], 
           "includeAll": false
+        }, 
+        {
+          "regex": "", 
+          "sort": 1, 
+          "multi": true, 
+          "hide": 0, 
+          "name": "role", 
+          "tags": [], 
+          "allValue": ".*", 
+          "tagValuesQuery": "", 
+          "refresh": 1, 
+          "label": "Role", 
+          "current": {
+            "text": "All"
+          }, 
+          "datasource": "prometheus", 
+          "type": "query", 
+          "query": "label_values(system_info_cpu_user, role)", 
+          "useTags": false, 
+          "tagsQuery": "", 
+          "options": [], 
+          "includeAll": true
         }
       ]
     }, 
