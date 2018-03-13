@@ -10,3 +10,4 @@ panels:
     - bp-alert-link.yaml
     - bp-alert-cable.yaml
     - bp-alert-config.yaml
+    - bp-alert-probe.yaml
