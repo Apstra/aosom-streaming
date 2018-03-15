@@ -70,6 +70,7 @@
             "format": "none", 
             "cacheTimeout": null, 
             "postfix": "", 
+            "decimals": 0, 
             "interval": null, 
             "colors": [
               "rgba(245, 54, 54, 0.9)", 
@@ -146,6 +147,7 @@
             "format": "none", 
             "cacheTimeout": null, 
             "postfix": "", 
+            "decimals": 0, 
             "interval": null, 
             "colors": [
               "rgba(245, 54, 54, 0.9)", 
@@ -222,6 +224,7 @@
             "format": "none", 
             "cacheTimeout": null, 
             "postfix": "", 
+            "decimals": 0, 
             "interval": null, 
             "colors": [
               "rgba(245, 54, 54, 0.9)", 
