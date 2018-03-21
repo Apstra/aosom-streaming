@@ -64,13 +64,12 @@
               }
             ], 
             "prefixFontSize": "50%", 
-            "valueName": "avg", 
+            "valueName": "current", 
             "type": "singlestat", 
             "valueFontSize": "80%", 
             "format": "none", 
             "cacheTimeout": null, 
             "postfix": "", 
-            "decimals": 0, 
             "interval": null, 
             "colors": [
               "rgba(245, 54, 54, 0.9)", 
@@ -141,13 +140,12 @@
               }
             ], 
             "prefixFontSize": "50%", 
-            "valueName": "avg", 
+            "valueName": "current", 
             "type": "singlestat", 
             "valueFontSize": "80%", 
             "format": "none", 
             "cacheTimeout": null, 
             "postfix": "", 
-            "decimals": 0, 
             "interval": null, 
             "colors": [
               "rgba(245, 54, 54, 0.9)", 
@@ -218,13 +216,12 @@
               }
             ], 
             "prefixFontSize": "50%", 
-            "valueName": "avg", 
+            "valueName": "current", 
             "type": "singlestat", 
             "valueFontSize": "80%", 
             "format": "none", 
             "cacheTimeout": null, 
             "postfix": "", 
-            "decimals": 0, 
             "interval": null, 
             "colors": [
               "rgba(245, 54, 54, 0.9)", 
