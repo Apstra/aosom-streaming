@@ -64,7 +64,7 @@
               }
             ], 
             "prefixFontSize": "50%", 
-            "valueName": "avg", 
+            "valueName": "current", 
             "type": "singlestat", 
             "valueFontSize": "80%", 
             "format": "none", 
@@ -140,7 +140,7 @@
               }
             ], 
             "prefixFontSize": "50%", 
-            "valueName": "avg", 
+            "valueName": "current", 
             "type": "singlestat", 
             "valueFontSize": "80%", 
             "format": "none", 
@@ -216,7 +216,7 @@
               }
             ], 
             "prefixFontSize": "50%", 
-            "valueName": "avg", 
+            "valueName": "current", 
             "type": "singlestat", 
             "valueFontSize": "80%", 
             "format": "none", 
