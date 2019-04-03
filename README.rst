@@ -18,10 +18,9 @@ The packaged solution includes:
 * Influxdb for Events (port 8086)
 * 2 Collectors, one for each database based on Telegraf.
 
-Apstra offers a pre-configured OVA for Aosom-Streaming.  This OVA
-must be configured by modifying ``variables.env``, then ``make clean``,
-``make start``, ``make init`` to customize the IP addresses to your
-environment.
+The application must first be configured by modifying
+``variables.env``, then ``make clean``, ``make start``, ``make init``
+to customize the IP addresses to your environment.
 
 *********************
 Using Aosom-streaming
@@ -499,6 +498,5 @@ Listing docker containers::
     0a84241e1366        apstra/telegraf:1.2      "telegraf -debug"        3 minutes ago       Up 3 minutes        0.0.0.0:4444->4444/tcp                           aosomstreaming_telegraf-influx_1
     f4d2deb0e428        influxdb:1.1.1-alpine    "/entrypoint.sh influ"   3 minutes ago       Up 3 minutes        0.0.0.0:8083->8083/tcp, 0.0.0.0:8086->8086/tcp   aosomstreaming_influxdb_1
 
-
-
-
+## Disclaimer
+WARNING: This application is for demo purposes only and should not be used in production.
