@@ -4,6 +4,10 @@ AOSOM-Streaming
 
 Version v0.6.1
 
+Disclaimer
+==========
+WARNING: This application is for demo purposes only and should not be used in production.
+
 The Aosom Streaming project provides a packaged solution to collect
 and visualize telemetry streaming information coming from an AOS Server.
 This provides a Web UI experience and example queries to handle alerts,
@@ -498,5 +502,4 @@ Listing docker containers::
     0a84241e1366        apstra/telegraf:1.2      "telegraf -debug"        3 minutes ago       Up 3 minutes        0.0.0.0:4444->4444/tcp                           aosomstreaming_telegraf-influx_1
     f4d2deb0e428        influxdb:1.1.1-alpine    "/entrypoint.sh influ"   3 minutes ago       Up 3 minutes        0.0.0.0:8083->8083/tcp, 0.0.0.0:8086->8086/tcp   aosomstreaming_influxdb_1
 
-## Disclaimer
-WARNING: This application is for demo purposes only and should not be used in production.
+
