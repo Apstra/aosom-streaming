@@ -2,16 +2,16 @@
 AOSOM-Streaming
 ###############
 
-**************
 Version v0.6.1
-**************
 
+**********
 Disclaimer
-==========
+**********
 **WARNING:** This application is for demo purposes only and should not be used in production.
 
+********
 Overview
-========
+********
 The Aosom Streaming project provides a packaged solution to collect
 and visualize telemetry streaming information coming from an AOS Server.
 This provides a Web UI experience and example queries to handle alerts,
