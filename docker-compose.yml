@@ -27,7 +27,7 @@ services:
         - ./config/alert.rules:/etc/prometheus/alert.rules
         - /etc/localtime:/etc/localtime
     command:
-        - '-config.file=/etc/prometheus/prometheus.yml'
+        - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
         - '9090:9090'
 
