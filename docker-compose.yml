@@ -21,7 +21,7 @@ services:
 # Prometheus -
 # -------------------------------------------------------------------------
   prometheus:
-    image: prom/prometheus:v1.7.1
+    image: prom/prometheus:v2.4.3
     volumes:
         - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
         - ./config/alert.rules:/etc/prometheus/alert.rules
