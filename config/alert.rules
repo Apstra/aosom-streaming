@@ -25,7 +25,6 @@ groups:
     expr: interface_counters_rx_error_packets/5
   - record: interface_counters_tx_error_pps
     expr: interface_counters_tx_error_packets/5
-
-# alert_liveness_status_clean{actual_agents="", expected_agents=""} = alert_liveness_status
-
-# interface_counters_total_pps = sum(interface_counters_tx_unicast_pps + interface_counters_tx_broadcast_pps + interface_counters_rx_unicast_pps + interface_counters_rx_broadcast_pps + interface_counters_rx_multicast_pps) by (device, role, blueprint)
+  - record: interface_counters_total_pps
+    expr: sum(interface_counters_tx_unicast_pps + interface_counters_tx_broadcast_pps + interface_counters_tx_multicast_pps +
+              interface_counters_rx_unicast_pps + interface_counters_rx_broadcast_pps + interface_counters_rx_multicast_pps) by (device, role, blueprint)
