@@ -7,7 +7,7 @@ span: 1
 
 targets:
   A:
-    expr: sum(alert_liveness_status_clean{device=~"$device"})
+    expr: sum(alert_liveness_status{device=~"$device"})
 
 templatings_used:
    - device.yaml
