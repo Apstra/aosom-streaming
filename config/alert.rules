@@ -28,3 +28,8 @@ groups:
   - record: interface_counters_total_pps
     expr: sum(interface_counters_tx_unicast_pps + interface_counters_tx_broadcast_pps + interface_counters_tx_multicast_pps +
               interface_counters_rx_unicast_pps + interface_counters_rx_broadcast_pps + interface_counters_rx_multicast_pps) by (device, role, blueprint)
+  - record: alert_liveness_status_clean
+    expr: alert_liveness_status
+    labels:
+      actual_agents: ""
+      expected_agents: ""

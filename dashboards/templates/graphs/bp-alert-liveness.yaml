@@ -7,7 +7,7 @@ span: 1
 
 targets:
   A:
-    expr: sum(alert_liveness_status{role=~"$role", blueprint=~"$blueprint"})
+    expr: sum(alert_liveness_status_clean{role=~"$role", blueprint=~"$blueprint"})
 
 templatings_used:
   - role.yaml
