@@ -295,7 +295,7 @@
             }, 
             "targets": [
               {
-                "expr": "sum(alert_liveness_status_clean{role=~\"$role\", blueprint=~\"$blueprint\"})", 
+                "expr": "sum(alert_liveness_status{role=~\"$role\", blueprint=~\"$blueprint\"})", 
                 "metric": "", 
                 "step": 60, 
                 "legendFormat": "", 
