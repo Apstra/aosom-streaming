@@ -1,6 +1,6 @@
 
 
-title: "Traffic Statistics (BPS)"
+title: "Traffic Statistics (bps)"
 template: prom-graph-lines-01.j2
 datasource: prometheus
 span: 3

@@ -890,7 +890,7 @@
             ], 
             "fill": 1, 
             "span": 3, 
-            "title": "Traffic Statistics (BPS)", 
+            "title": "Traffic Statistics (bps)", 
             "tooltip": {
               "sort": 0, 
               "shared": true, 
