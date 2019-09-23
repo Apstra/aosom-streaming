@@ -7,7 +7,7 @@ span: 1
 
 targets:
   A:
-    expr: sum(cable_peer_mismatch_status{device=~"$device"})
+    expr: sum(alert_cable_peer_mismatch_status{device=~"$device"})
 
 templatings_used:
    - device.yaml
