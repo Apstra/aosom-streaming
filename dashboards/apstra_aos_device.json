@@ -59,7 +59,7 @@
             }, 
             "targets": [
               {
-                "expr": "sum(alert_liveness_status{device=~\"$device\"})", 
+                "expr": "sum(alert_liveness_status_clean{device=~\"$device\"})", 
                 "metric": "", 
                 "step": 60, 
                 "legendFormat": "", 
