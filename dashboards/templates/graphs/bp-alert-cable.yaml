@@ -7,7 +7,7 @@ span: 1
 
 targets:
   A:
-    expr: sum(cable_peer_mismatch_status{role=~"$role", blueprint=~"$blueprint"})
+    expr: sum(alert_cable_peer_mismatch_status{role=~"$role", blueprint=~"$blueprint"})
 
 templatings_used:
   - role.yaml
