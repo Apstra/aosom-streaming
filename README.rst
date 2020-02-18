@@ -2,7 +2,7 @@
 AOSOM-Streaming
 ###############
 
-Version v0.6.2
+Version v0.7.0
 
 **********
 Disclaimer
@@ -192,6 +192,7 @@ grafana web UI.
 
     INPUT_PORT_INFLUX=4444
     INPUT_PORT_PROM=6666
+    INPUT_PORT_ES=7777
     AOS_LOGIN=admin
     AOS_PASSWORD=admin
     AOS_PORT=443
@@ -294,6 +295,14 @@ Other options available for MAKE are::
     clean                          Delete Grafana information and delete current streaming session on AOS (clean-docker clean-aos)
     clean-docker                   Delete Grafana information
     clean-aos                      Delete current streaming session on AOS
+
+***************************
+Elasticsearch Configuration
+***************************
+Configuration files for use with Elasticsearch are also included here. The varaibles.env file should still be configured as described above.
+To start the Elasticsearch, Kibana and Telegraf containers use::
+
+    docker-compose -f docker-compose-es.yml up -d
 
 
 ***********************************
