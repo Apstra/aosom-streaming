@@ -109,48 +109,6 @@ Configuring telemetry streaming as part of this project only requires editing
 the ‘variables.env’ file and restarting  the containers.  No configuration is
 necessary on the AOS server.
 
-Aosom-Streaming VM Setup
-========================
-This step is only applicable if you are using the Apstra-provided OVA file from
-files.apstra.com for Aosom-streaming, otherwise skip to Aosom-Streaming
-application setup.
-
-.. note::
-
-    The default appliance credentials are username `aosom` and password `admin`
-
-By default, this appliance ships with the first network interface (`ens33`)
-configured for DHCP.
-
-.. code-block:: text
-
-    aosom@ubuntu:~/aosom-streaming$ cat /etc/network/interfaces
-    # This file describes the network interfaces available on your system
-    # and how to activate them. For more information, see interfaces(5).
-
-    source /etc/network/interfaces.d/*
-
-    # The loopback network interface
-    auto lo
-    iface lo inet loopback
-
-    # The primary network interface
-    auto ens33
-    iface ens33 inet dhcp
-
-
-Network configuration can be changed to a static IP address:
-
-.. code-block:: text
-
-    # The primary network interface
-    auto eth0
-    iface eth0 inet static
-     address 192.168.57.35
-     netmask 255.255.255.0
-     gateway 192.168.57.2
-     dns-nameservers 192.168.57.2
-
 Aosom-Streaming Application setup
 =================================
 
