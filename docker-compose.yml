@@ -7,7 +7,7 @@ services:
 # Grafana - Graphical Interface
 # -------------------------------------------------------------------------
   grafana:
-    image: grafana/grafana:4.4.3
+    image: grafana/grafana:5.4.3
     volumes:
       - /etc/localtime:/etc/localtime
       - grafana_data_2:/var/lib/grafana

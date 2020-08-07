@@ -2,7 +2,7 @@
 AOSOM-Streaming
 ###############
 
-Version v0.7.0
+Version v0.7.1
 
 **********
 Disclaimer
@@ -37,7 +37,7 @@ Using Aosom-streaming
 Grafana Web UI
 ==============
 You can browse to the Grafana web UI by visiting http://<aosom-streaming>:3000
-The default username is admin password admin
+The default username is `admin` password `aos-aos`
 
 .. image:: images/graphana_login.png
 
@@ -156,7 +156,7 @@ grafana web UI.
     AOS_PORT=443
 
     GRAFANA_LOGIN=admin
-    GRAFANA_PASSWORD=admin
+    GRAFANA_PASSWORD=aos-aos
 
 
 Set up the project with ``make start``, or if making configuration
