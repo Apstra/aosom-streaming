@@ -21,7 +21,7 @@ services:
 # Prometheus -
 # -------------------------------------------------------------------------
   prometheus:
-    image: prom/prometheus:v2.19.2
+    image: prom/prometheus:v2.4.3
     volumes:
         - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
         - ./config/alert.rules:/etc/prometheus/alert.rules
@@ -35,7 +35,7 @@ services:
 # influxdb
 # -------------------------------------------------------------------------
   influxdb:
-    image: influxdb:1.7.10
+    image: influxdb:1.1.1-alpine
     volumes:
      - /etc/localtime:/etc/localtime
     environment:
