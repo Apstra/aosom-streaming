@@ -28,6 +28,7 @@ services:
         - /etc/localtime:/etc/localtime
     command:
         - '--config.file=/etc/prometheus/prometheus.yml'
+        - '--storage.tsdb.retention=90d'
     ports:
         - '9090:9090'
 
