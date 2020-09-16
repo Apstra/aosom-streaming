@@ -28,7 +28,7 @@ services:
         - /etc/localtime:/etc/localtime
     command:
         - '--config.file=/etc/prometheus/prometheus.yml'
-        - '--storage.tsdb.retention=90d'
+        - '--storage.tsdb.retention=3d'
     ports:
         - '9090:9090'
 
@@ -36,11 +36,12 @@ services:
 # influxdb
 # -------------------------------------------------------------------------
   influxdb:
-    image: influxdb:1.1.1-alpine
+    image: influxdb:1.8.2-alpine
     volumes:
      - /etc/localtime:/etc/localtime
     environment:
      - "INFLUXDB_ADMIN_ENABLED=true"
+     - ./influxdb/scripts/:/docker-entrypoint-initdb.d/
     ports:
      - "8083:8083"
      - "8086:8086"
