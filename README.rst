@@ -2,7 +2,7 @@
 AOSOM-Streaming
 ###############
 
-Version v0.7.2
+Version v0.7.3
 
 **********
 Disclaimer

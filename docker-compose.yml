@@ -40,6 +40,8 @@ services:
     volumes:
      - /etc/localtime:/etc/localtime
      - ./influxdb/scripts/:/docker-entrypoint-initdb.d/
+    environment:
+     INFLUXDB_MONITOR_STORE_ENABLED: 'false'
     ports:
      - "8086:8086"
 
