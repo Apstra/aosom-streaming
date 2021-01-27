@@ -71,7 +71,7 @@ clean: clean-docker # clean-aos
 ## Delete Grafana information
 clean-docker:
 	@echo "-- Delete all Data in Grafana (Grafana must be stopped) --"
-	docker volume rm aosomstreaming_grafana_data_2
+	docker volume rm -f aosomstreaming_grafana_data_2
 #
 # ## Delete current streaming session on AOS
 # clean-aos:
