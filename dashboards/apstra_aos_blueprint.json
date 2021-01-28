@@ -55,7 +55,7 @@
             }, 
             "targets": [
               {
-                "expr": "count(count by(device)(system_info_cpu_idle{role=\"spine\"}))", 
+                "expr": "count(count by(device)(interface_counters_tx_bps{role=\"spine\"}))",
                 "metric": "", 
                 "step": 60, 
                 "legendFormat": "", 
@@ -131,7 +131,7 @@
             }, 
             "targets": [
               {
-                "expr": "count(count by(device)(system_info_cpu_idle{role=\"leaf\"}))", 
+                "expr": "count(count by(device)(interface_counters_tx_bps{role=\"leaf\"}))",
                 "metric": "", 
                 "step": 60, 
                 "legendFormat": "", 
@@ -207,7 +207,7 @@
             }, 
             "targets": [
               {
-                "expr": "count(count by(device)(system_info_cpu_idle{role=~\".*server\"}))", 
+                "expr": "count(count by(device)(interface_counters_tx_bps{role=~\".*server\"}))",
                 "metric": "", 
                 "step": 60, 
                 "legendFormat": "", 
