@@ -1283,7 +1283,7 @@
           }, 
           "datasource": "prometheus", 
           "type": "query", 
-          "query": "label_values(alert_hostname_status, blueprint)",
+          "query": "label_values(interface_counters_tx_bps, blueprint)",
           "useTags": false, 
           "tagsQuery": "", 
           "options": [], 

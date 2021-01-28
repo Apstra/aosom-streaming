@@ -4,4 +4,4 @@ template: templating_prom_base.j2
 include_all: "false"
 name: blueprint
 label: Blueprint
-query: label_values(alert_hostname_status, blueprint)
+query: label_values(interface_counters_tx_bps, blueprint)
