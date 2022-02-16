@@ -30,6 +30,15 @@ stop:
 	@echo "-- Stop all components --"
 	@docker-compose down
 
+## Start all components using ECR images to prevent docker pull quota limits
+start-ecr:
+	@echo "-- Start all components --"
+	docker-compose -f ecr.docker-compose.yml up -d
+
+stop-ecr:
+	@echo "-- Start all components --"
+	docker-compose -f ecr.docker-compose.yml down
+
 ## Create datasources (proxy) in grafana and load Dashboards (grafana-create-source-proxy grafana-load-dashboards)
 init: grafana-create-source-proxy grafana-load-dashboards
 

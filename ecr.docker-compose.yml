@@ -1,0 +1,74 @@
+
+version: '2'
+volumes:
+    grafana_data_2: {}
+services:
+# -------------------------------------------------------------------------
+# Grafana - Graphical Interface
+# -------------------------------------------------------------------------
+  grafana:
+    image: public.ecr.aws/q1z9q2b2/grafana/grafana:5.4.3
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - grafana_data_2:/var/lib/grafana
+      - ./config/grafana.ini:/etc/grafana/grafana.ini
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+
+# -------------------------------------------------------------------------
+# Prometheus -
+# -------------------------------------------------------------------------
+  prometheus:
+    image: public.ecr.aws/q1z9q2b2/prom/prometheus:v2.4.3
+    volumes:
+        - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+        - ./config/alert.rules:/etc/prometheus/alert.rules
+        - /etc/localtime:/etc/localtime
+    command:
+        - '--config.file=/etc/prometheus/prometheus.yml'
+        - '--storage.tsdb.retention=3d'
+    ports:
+        - '9090:9090'
+
+# -------------------------------------------------------------------------
+# influxdb
+# -------------------------------------------------------------------------
+  influxdb:
+    image: public.ecr.aws/q1z9q2b2/influxdb:1.8.2-alpine
+    volumes:
+     - /etc/localtime:/etc/localtime
+     - ./influxdb/scripts/:/docker-entrypoint-initdb.d/
+    environment:
+     INFLUXDB_MONITOR_STORE_ENABLED: 'false'
+    ports:
+     - "8086:8086"
+
+# -------------------------------------------------------------------------
+# Telegraf - Prom
+# -------------------------------------------------------------------------
+  telegraf-prom:
+    image: public.ecr.aws/q1z9q2b2/apstra/telegraf:latest
+    command: telegraf -debug
+    env_file:
+      - variables.env
+    volumes:
+      - ./config/telegraf-prom.toml:/etc/telegraf/telegraf.conf
+      - /etc/localtime:/etc/localtime
+    ports:
+        - '6666:6666'
+
+# -------------------------------------------------------------------------
+# Telegraf - Influx
+# -------------------------------------------------------------------------
+  telegraf-influx:
+    image: public.ecr.aws/q1z9q2b2/apstra/telegraf:latest
+    command: telegraf -debug
+    env_file:
+      - variables.env
+    volumes:
+      - ./config/telegraf-influx.toml:/etc/telegraf/telegraf.conf
+      - /etc/localtime:/etc/localtime
+    ports:
+        - '4444:4444'
