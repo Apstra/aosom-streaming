@@ -83,7 +83,7 @@ Here is an example of BGP Neighbors being offline.
 InfluxDB
 ========
 InfluxDB is used to store AOS events from telemetry streaming.  InfluxDB is
-available by viewing http://<aosom-streaming>:8083
+available by viewing http://<aosom-streaming>:8086
 
 We can show the available influxdb keys with queries, such as ‘show field keys’
 or ‘show measurements’.
@@ -399,7 +399,6 @@ Modifying docker options::
      # influxdb
     @@ -43,6 +45,7 @@ services:
          ports:
-          - "8083:8083"
           - "8086:8086"
     +    restart: always
 
@@ -471,6 +470,6 @@ Listing docker containers::
     3042d45f1107        prom/prometheus:v1.5.2   "/bin/prometheus -con"   3 minutes ago       Up 3 minutes        0.0.0.0:9090->9090/tcp                           aosomstreaming_prometheus_1
     429328fbb5ac        apstra/telegraf:1.2      "telegraf -debug"        3 minutes ago       Up 3 minutes        0.0.0.0:6666->6666/tcp                           aosomstreaming_telegraf-prom_1
     0a84241e1366        apstra/telegraf:1.2      "telegraf -debug"        3 minutes ago       Up 3 minutes        0.0.0.0:4444->4444/tcp                           aosomstreaming_telegraf-influx_1
-    f4d2deb0e428        influxdb:1.1.1-alpine    "/entrypoint.sh influ"   3 minutes ago       Up 3 minutes        0.0.0.0:8083->8083/tcp, 0.0.0.0:8086->8086/tcp   aosomstreaming_influxdb_1
+    f4d2deb0e428        influxdb:1.1.1-alpine    "/entrypoint.sh influ"   3 minutes ago       Up 3 minutes        0.0.0.0:8086->8086/tcp   aosomstreaming_influxdb_1
 
 
