@@ -34,6 +34,7 @@ stop:
 start-ecr:
 	@echo "-- Start all components --"
 	docker-compose -f ecr.docker-compose.yml up -d
+	timeout 1m ./grafana_healthcheck.sh || echo Grafana startup timed out
 
 stop-ecr:
 	@echo "-- Start all components --"
