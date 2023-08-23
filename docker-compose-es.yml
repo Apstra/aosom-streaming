@@ -31,7 +31,7 @@ services:
 # Telegraf - Elasticsearch
 # -------------------------------------------------------------------------
   telegraf-elasticsearch:
-    image: apstra/telegraf:latest
+    image: apstra/telegraf:1.12_AOS_3.2
     command: telegraf -debug
     env_file:
       - variables.env
