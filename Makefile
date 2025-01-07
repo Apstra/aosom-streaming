@@ -1,6 +1,8 @@
 
 VAR_FILE=variables.env
 include $(VAR_FILE)
+GRAFANA_LOGIN=admin
+GRAFANA_PASSWORD=aos-aos
 
 .SILENT:
 .PHONY: help
