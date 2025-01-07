@@ -1,5 +1,8 @@
 #!/bin/bash
 
+GRAFANA_LOGIN=${GRAFANA_LOGIN:-admin}
+GRAFANA_PASSWORD=${GRAFANA_PASSWORD:-aos-aos}
+
 source ./variables.env
 
 function check_grafana () {

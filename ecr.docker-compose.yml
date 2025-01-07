@@ -11,7 +11,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime
       - grafana_data_2:/var/lib/grafana
-      - ./config/grafana.ini:/etc/grafana/grafana.ini
+      - ./config/grafana.ini:/etc/grafana/grafana-config.ini
     depends_on:
       - prometheus
     ports:
