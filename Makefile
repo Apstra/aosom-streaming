@@ -25,22 +25,22 @@ help:
 ## Start all components
 start:
 	@echo "-- Start all components --"
-	docker-compose up -d
+	@./docker_compose.sh up -d
 
 ## Stop all components
 stop:
 	@echo "-- Stop all components --"
-	@docker-compose down
+	@./docker_compose.sh down
 
 ## Start all components using ECR images to prevent docker pull quota limits
 start-ecr:
 	@echo "-- Start all components --"
-	docker-compose -f ecr.docker-compose.yml up -d
+	@./docker_compose.sh -f ecr.docker-compose.yml up -d
 	timeout 1m ./grafana_healthcheck.sh || echo Grafana startup timed out
 
 stop-ecr:
 	@echo "-- Start all components --"
-	docker-compose -f ecr.docker-compose.yml down
+	@./docker_compose.sh -f ecr.docker-compose.yml down
 
 ## Create datasources (proxy) in grafana and load Dashboards (grafana-create-source-proxy grafana-load-dashboards)
 init: grafana-create-source-proxy grafana-load-dashboards
@@ -75,7 +75,7 @@ update: stop update-docker start grafana-load-dashboards
 ## Update Docker Images
 update-docker:
 	@echo "-- Download Latest Images from Docker Hub --"
-	@docker-compose pull --ignore-pull-failures
+	@./docker_compose.sh pull --ignore-pull-failures
 
 ## Delete Grafana information and delete current streaming session on AOS (clean-docker clean-aos)
 clean: clean-docker # clean-aos
