@@ -36,7 +36,7 @@ stop:
 start-ecr:
 	@echo "-- Start all components --"
 	@./docker_compose.sh -f ecr.docker-compose.yml up -d
-	timeout 1m ./grafana_healthcheck.sh || echo Grafana startup timed out
+	@./api_request.py --url /api/health || echo Grafana failed to start
 
 stop-ecr:
 	@echo "-- Start all components --"
@@ -48,26 +48,26 @@ init: grafana-create-source-proxy grafana-load-dashboards
 ## Create datasource in proxy mode in Grafana
 grafana-create-source-proxy:
 	@echo "-- Create Datasource in Grafana 1/2"
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/datasources' -X POST -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"name":"influxdb","type":"influxdb","url":"http://influxdb:8086","access":"proxy","isDefault":false,"database":"aos"}'
+	@./api_request.py --method POST --url /api/datasources --template influxdb
 	@echo "\n-- Create Datasource in Grafana 2/2"
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/datasources' -X POST -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"name":"prometheus","type":"prometheus","url":"http://prometheus:9090","access":"proxy","isDefault":true}'
+	@./api_request.py --method POST --url /api/datasources --template prometheus
 
 ## Create datasource in direct mode in Grafana (use that is grafana cannot access the data)
 grafana-create-source-direct:
 	@echo "-- Cleanup Datasources in Grafana"
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/datasources/1' -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json'
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/datasources/2' -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json'
+	@./api_request.py --method DELETE --url /api/datasources/1
+	@./api_request.py --method DELETE --url /api/datasources/2
 	@echo "\n-- Create Datasource in Grafana 1/2"
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/datasources' -X POST -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"name":"influxdb","type":"influxdb","url":"http://$(LOCAL_IP):8086","access":"direct","isDefault":false,"database":"aos"}'
+	@./api_request.py --method POST --url /api/datasources --template influxdb_direct
 	@echo "\n-- Create Datasource in Grafana 2/2"
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/datasources' -X POST -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"name":"prometheus","type":"prometheus","url":"http://$(LOCAL_IP):9090","access":"direct","isDefault":true}'
+	@./api_request.py --method POST --url /api/datasources --template prometheus_direct
 
 ## Load/Reload the Dashboards in Grafana
 grafana-load-dashboards:
 	@echo "-- Load Dashboard in Grafana 1/2"
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/dashboards/db' -X POST -H "Content-Type: application/json" --data-binary @dashboards/apstra_aos_blueprint.json
+	@./api_request.py --url /api/dashboards/db --method POST --template apstra_aos_blueprint
 	@echo "\n-- Load Dashboard in Grafana 2/2"
-	@curl 'http://$(GRAFANA_LOGIN):$(GRAFANA_PASSWORD)@localhost:3000/api/dashboards/db' -X POST -H "Content-Type: application/json" --data-binary @dashboards/apstra_aos_device.json
+	@./api_request.py --url /api/dashboards/db --method POST --template apstra_aos_device
 
 ## Stop all components, Update all images, Restart all components, Reload the Dashboards (stop update-docker start grafana-load-dashboards)
 update: stop update-docker start grafana-load-dashboards
