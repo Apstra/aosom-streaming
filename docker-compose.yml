@@ -49,7 +49,7 @@ services:
 # Telegraf - Prom
 # -------------------------------------------------------------------------
   telegraf-prom:
-    image: apstra/telegraf:latest
+    image: apstra/telegraf:1.12_AOS_3.2
     command: telegraf -debug
     env_file:
       - variables.env
@@ -63,7 +63,7 @@ services:
 # Telegraf - Influx
 # -------------------------------------------------------------------------
   telegraf-influx:
-    image: apstra/telegraf:latest
+    image: apstra/telegraf:1.12_AOS_3.2
     command: telegraf -debug
     env_file:
       - variables.env
