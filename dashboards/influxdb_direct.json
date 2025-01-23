@@ -1,0 +1,8 @@
+{
+  "name": "influxdb",
+  "type": "influxdb",
+  "url": "http://$local_ip:8086",
+  "access": "direct",
+  "isDefault": false,
+  "database": "aos"
+}

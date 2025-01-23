@@ -1,0 +1,7 @@
+{
+  "name": "prometheus",
+  "type": "prometheus",
+  "url": "http://$local_ip:9090",
+  "access": "direct",
+  "isDefault": true
+}
